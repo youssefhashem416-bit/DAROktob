@@ -1,0 +1,634 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>دار اكتب للنشر والتوزيع</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #222222;
+
+            opacity: 1;
+            transition: opacity 0.35s ease;
+        }
+
+
+        body.page-exit {
+            opacity: 0;
+        }
+
+
+        /* =========================
+           شاشة الدخول
+        ========================= */
+
+        #intro-screen {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            animation: introFadeOut 0.7s ease forwards;
+            animation-delay: 1.8s;
+        }
+
+
+        #intro-screen img {
+            width: 230px;
+            max-width: 60%;
+            animation: logoZoom 1.8s ease;
+        }
+
+
+        @keyframes logoZoom {
+
+            0% {
+                opacity: 0;
+                transform: scale(0.75);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+        }
+
+
+        @keyframes introFadeOut {
+
+            from {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+
+        }
+
+
+        /* =========================
+           القائمة
+        ========================= */
+
+        nav {
+            width: 100%;
+            background-color: #a9232b;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(120, 20, 25, 0.12);
+        }
+
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 17px 30px;
+            display: block;
+            font-size: 17px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            background-color: #ffffff;
+            color: #a9232b;
+        }
+
+
+        /* =========================
+           البانر
+        ========================= */
+
+        .banner {
+            width: 100%;
+            overflow: hidden;
+        }
+
+
+        .banner img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        /* =========================
+           الترحيب
+        ========================= */
+
+        .welcome {
+            text-align: center;
+            padding: 70px 25px 50px;
+        }
+
+
+        .welcome h1 {
+            color: #a9232b;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+
+        .welcome p {
+            color: #555555;
+            font-size: 20px;
+            line-height: 2;
+            max-width: 850px;
+            margin: auto;
+        }
+
+
+        /* =========================
+           أحدث الكتب
+        ========================= */
+
+        .latest-books {
+            max-width: 1200px;
+            margin: auto;
+            padding: 30px 25px 70px;
+        }
+
+
+        .latest-books h2 {
+            text-align: center;
+            color: #a9232b;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+
+
+        .books-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+
+        .book-card {
+            background-color: #ffffff;
+            border: 1px solid #eeeeee;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 18px rgba(120, 20, 25, 0.08);
+            transition: 0.3s;
+        }
+
+
+        .book-card:hover {
+            transform: translateY(-7px);
+            border-color: #a9232b;
+            box-shadow: 0 10px 25px rgba(120, 20, 25, 0.14);
+        }
+
+
+        .book-card img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            display: block;
+        }
+
+
+        .book-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+
+        .book-info h3 {
+            color: #a9232b;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+
+        .book-info p {
+            color: #666666;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           الفوتر
+        ========================= */
+
+        footer {
+            background-color: #a9232b;
+            color: #ffffff;
+            text-align: center;
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+
+        footer p {
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           الموبايل
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .books-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav a {
+                width: 50%;
+                text-align: center;
+                padding: 14px 10px;
+            }
+
+
+            .welcome {
+                padding: 50px 20px 35px;
+            }
+
+
+            .welcome h1 {
+                font-size: 30px;
+            }
+
+
+            .welcome p {
+                font-size: 17px;
+            }
+
+
+            .latest-books {
+                padding: 25px 15px 50px;
+            }
+
+
+            .latest-books h2 {
+                font-size: 27px;
+            }
+
+
+            .books-container {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+
+            .book-card img {
+                height: auto;
+                max-height: 500px;
+                object-fit: contain;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         شاشة الدخول
+    ========================= -->
+
+    <div id="intro-screen">
+
+        <img src="images/logo dar.jpg"
+             alt="دار اكتب للنشر والتوزيع">
+
+    </div>
+
+
+    <!-- =========================
+         القائمة
+    ========================= -->
+
+    <nav>
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="books.html">
+            الكتب
+        </a>
+
+        <a href="about.html">
+            من نحن
+        </a>
+
+        <a href="contact.html">
+            تواصل معنا
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         البانر
+    ========================= -->
+
+    <div class="banner">
+
+        <img src="images/banner.jpg"
+             alt="دار اكتب للنشر والتوزيع">
+
+    </div>
+
+
+    <!-- =========================
+         الترحيب
+    ========================= -->
+
+    <section class="welcome">
+
+        <h1>
+            مرحبًا بكم في دار اكتب للنشر والتوزيع
+        </h1>
+
+        <p>
+            نؤمن بأن الكتاب هو الطريق إلى المعرفة،
+            وأن لكل كاتب حكاية تستحق أن تصل إلى القارئ.
+            نسعى دائمًا لتقديم محتوى مميز وإصدارات متنوعة
+            تلبي اهتمامات القراء.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         أحدث الكتب
+    ========================= -->
+
+    <section class="latest-books">
+
+        <h2>
+            أحدث الكتب
+        </h2>
+
+
+        <div class="books-container">
+
+
+            <!-- الكتاب الأول -->
+
+            <div class="book-card">
+
+                <img src="images/book1.jpg"
+                     alt="كيف تصنع مريضًا نفسيًا؟">
+
+                <div class="book-info">
+
+                    <h3>
+                        كيف تصنع مريضًا نفسيًا؟
+                    </h3>
+
+                    <p>
+                        كريم الشريف
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- الكتاب الثاني -->
+
+            <div class="book-card">
+
+                <img src="images/book2.jpg"
+                     alt="ثورة الذكاء الاصطناعي">
+
+                <div class="book-info">
+
+                    <h3>
+                        ثورة الذكاء الاصطناعي
+                    </h3>
+
+                    <p>
+                        د. علاء الدين السويفي
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- الكتاب الثالث -->
+
+            <div class="book-card">
+
+                <img src="images/book3.jpg"
+                     alt="إدارة الضغوط والأعباء النفسية">
+
+                <div class="book-info">
+
+                    <h3>
+                        إدارة الضغوط والأعباء النفسية
+                    </h3>
+
+                    <p>
+                        رودينة رجب
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- الكتاب الرابع -->
+
+            <div class="book-card">
+
+                <img src="images/book4.jpg"
+                     alt="الحرب الإنسانية">
+
+                <div class="book-info">
+
+                    <h3>
+                        الحرب الإنسانية
+                    </h3>
+
+                    <p>
+                        زهير اليعقوبي
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- الكتاب الخامس -->
+
+            <div class="book-card">
+
+                <img src="images/book5.jpg"
+                     alt="تاريخ فلسطين وإسرائيل عبر العصور">
+
+                <div class="book-info">
+
+                    <h3>
+                        تاريخ فلسطين وإسرائيل عبر العصور
+                    </h3>
+
+                    <p>
+                        د. هداية محمود العسولي
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- الكتاب السادس -->
+
+            <div class="book-card">
+
+                <img src="images/book6.jpg"
+                     alt="أحلام نارية">
+
+                <div class="book-info">
+
+                    <h3>
+                        أحلام نارية
+                    </h3>
+
+                    <p>
+                        محمد إبراهيم محروس
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         الفوتر
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 دار اكتب للنشر والتوزيع - جميع الحقوق محفوظة
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         الأكواد البرمجية
+    ========================= -->
+
+    <script>
+
+        /* =========================
+           شاشة الدخول تظهر مرة واحدة
+           في كل جلسة
+        ========================= */
+
+        const introScreen = document.getElementById("intro-screen");
+
+        if (sessionStorage.getItem("darOktobIntroShown") === "true") {
+
+            introScreen.style.display = "none";
+
+        } else {
+
+            sessionStorage.setItem("darOktobIntroShown", "true");
+
+            setTimeout(function() {
+
+                introScreen.style.display = "none";
+
+            }, 2500);
+
+        }
+
+
+        /* =========================
+           الانتقال الناعم بين الصفحات
+        ========================= */
+
+        const navLinks = document.querySelectorAll("nav a");
+
+        navLinks.forEach(function(link) {
+
+            link.addEventListener("click", function(event) {
+
+                const destination = this.getAttribute("href");
+
+                if (
+                    destination &&
+                    destination !== "#" &&
+                    !destination.startsWith("http")
+                ) {
+
+                    event.preventDefault();
+
+                    document.body.classList.add("page-exit");
+
+                    setTimeout(function() {
+
+                        window.location.href = destination;
+
+                    }, 350);
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

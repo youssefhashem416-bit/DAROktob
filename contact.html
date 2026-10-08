@@ -1,0 +1,477 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تواصل معنا - دار اكتب للنشر والتوزيع</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #222222;
+
+            /* انتقال ناعم بين الصفحات */
+            opacity: 1;
+            transition: opacity 0.35s ease;
+        }
+
+
+        /* حالة الخروج من الصفحة */
+
+        body.page-exit {
+            opacity: 0;
+        }
+
+
+        /* =========================
+           القائمة
+        ========================= */
+
+        nav {
+            width: 100%;
+            background-color: #a9232b;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(120, 20, 25, 0.12);
+        }
+
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 17px 30px;
+            display: block;
+            font-size: 17px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            background-color: #ffffff;
+            color: #a9232b;
+        }
+
+
+        /* =========================
+           رأس الصفحة
+        ========================= */
+
+        .contact-header {
+            background-color: #fafafa;
+            text-align: center;
+            padding: 70px 20px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+
+        .contact-header h1 {
+            color: #a9232b;
+            font-size: 42px;
+            margin-bottom: 18px;
+        }
+
+
+        .contact-header p {
+            color: #666666;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           قسم التواصل
+        ========================= */
+
+        .contact-section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 25px 40px;
+        }
+
+
+        .contact-section h2 {
+            text-align: center;
+            color: #a9232b;
+            font-size: 32px;
+            margin-bottom: 45px;
+        }
+
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+
+        /* =========================
+           بطاقات التواصل
+        ========================= */
+
+        .contact-card {
+            background-color: #ffffff;
+            border: 1px solid #eeeeee;
+            border-radius: 14px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(120, 20, 25, 0.08);
+            transition: 0.3s;
+        }
+
+
+        .contact-card:hover {
+            transform: translateY(-7px);
+            border-color: #a9232b;
+            box-shadow: 0 10px 25px rgba(120, 20, 25, 0.14);
+        }
+
+
+        .contact-icon {
+            width: 75px;
+            height: 75px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background-color: #f8e9ea;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+        }
+
+
+        .contact-card h3 {
+            color: #a9232b;
+            font-size: 22px;
+            margin-bottom: 18px;
+        }
+
+
+        .contact-card p {
+            color: #555555;
+            font-size: 17px;
+            line-height: 2;
+            word-break: break-word;
+        }
+
+
+        /* =========================
+           صورة دار اكتب
+        ========================= */
+
+        .contact-image {
+            width: 100%;
+            margin-top: 55px;
+            text-align: center;
+        }
+
+
+        .contact-image img {
+            width: 100%;
+            max-width: 1100px;
+            height: auto;
+            display: block;
+            margin: auto;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+
+        /* =========================
+           الفوتر
+        ========================= */
+
+        footer {
+            background-color: #a9232b;
+            color: #ffffff;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+
+        footer p {
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           الموبايل
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            nav a {
+                width: 50%;
+                text-align: center;
+                padding: 14px 10px;
+            }
+
+
+            .contact-header {
+                padding: 55px 20px;
+            }
+
+
+            .contact-header h1 {
+                font-size: 32px;
+            }
+
+
+            .contact-header p {
+                font-size: 16px;
+            }
+
+
+            .contact-section {
+                padding: 55px 20px 30px;
+            }
+
+
+            .contact-card {
+                padding: 35px 18px;
+            }
+
+
+            .contact-card p {
+                font-size: 16px;
+            }
+
+
+            .contact-image {
+                margin-top: 40px;
+            }
+
+
+            .contact-image img {
+                width: 100%;
+                height: auto;
+                border-radius: 6px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         القائمة
+    ========================= -->
+
+    <nav>
+
+        <a href="index.html">
+            الرئيسية
+        </a>
+
+        <a href="books.html">
+            الكتب
+        </a>
+
+        <a href="about.html">
+            من نحن
+        </a>
+
+        <a href="contact.html">
+            تواصل معنا
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         رأس الصفحة
+    ========================= -->
+
+    <section class="contact-header">
+
+        <h1>
+            تواصل معنا
+        </h1>
+
+        <p>
+            يسعدنا تواصلكم مع دار اكتب للنشر والتوزيع
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         بيانات التواصل
+    ========================= -->
+
+    <section class="contact-section">
+
+        <h2>
+            بيانات التواصل
+        </h2>
+
+
+        <div class="contact-container">
+
+
+            <!-- رقم الهاتف -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📞
+                </div>
+
+                <h3>
+                    رقم الهاتف
+                </h3>
+
+                <p>
+                    01111947957
+                </p>
+
+            </div>
+
+
+            <!-- البريد الإلكتروني -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    ✉️
+                </div>
+
+                <h3>
+                    البريد الإلكتروني
+                </h3>
+
+                <p>
+                    daroktob1@yahoo.com
+                </p>
+
+            </div>
+
+
+            <!-- العنوان -->
+
+            <div class="contact-card">
+
+                <div class="contact-icon">
+                    📍
+                </div>
+
+                <h3>
+                    العنوان
+                </h3>
+
+                <p>
+                    12 ش عبد الهادي الطحان
+                    <br>
+                    من ش الشيخ منصور
+                    <br>
+                    المرج الغربية - القاهرة - مصر
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================
+             الصورة
+        ========================= -->
+
+        <div class="contact-image">
+
+            <img src="images/contact-banner.jpg"
+                 alt="دار اكتب للنشر والتوزيع">
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =========================
+         الفوتر
+    ========================= -->
+
+    <footer>
+
+        <p>
+            © 2026 دار اكتب للنشر والتوزيع - جميع الحقوق محفوظة
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         انتقال الصفحات
+    ========================= -->
+
+    <script>
+
+        const navLinks = document.querySelectorAll("nav a");
+
+        navLinks.forEach(function(link) {
+
+            link.addEventListener("click", function(event) {
+
+                const destination = this.getAttribute("href");
+
+                if (
+                    destination &&
+                    destination !== "#" &&
+                    !destination.startsWith("http")
+                ) {
+
+                    event.preventDefault();
+
+                    document.body.classList.add("page-exit");
+
+                    setTimeout(function() {
+
+                        window.location.href = destination;
+
+                    }, 350);
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
