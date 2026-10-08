@@ -1,523 +1,299 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
 <head>
 
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>من نحن - دار اكتب للنشر والتوزيع</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background-color: #ffffff;
-            color: #222222;
-
-            font-size: 18px;
-
-            line-height: 1.9;
-
-            opacity: 1;
-
-            transition: opacity 0.35s ease;
-        }
-
-
-        /* =========================
-           انتقال بين الصفحات
-        ========================= */
-
-        body.page-exit {
-            opacity: 0;
-        }
-
-
-        /* =========================
-           القائمة
-        ========================= */
-
-        nav {
-            width: 100%;
-
-            background-color: #a9232b;
-
-            display: flex;
-
-            justify-content: center;
-
-            flex-wrap: wrap;
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-            box-shadow: 0 3px 10px rgba(120, 20, 25, 0.12);
-        }
-
-
-        nav a {
-            color: #ffffff;
-
-            text-decoration: none;
-
-            padding: 17px 30px;
-
-            display: block;
-
-            font-size: 18px;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-
-        nav a:hover {
-            background-color: #ffffff;
-
-            color: #a9232b;
-        }
-
-
-        /* =========================
-           رأس الصفحة
-        ========================= */
-
-        .about-header {
-            background-color: #fafafa;
-
-            text-align: center;
-
-            padding: 75px 20px;
-
-            border-bottom: 1px solid #eeeeee;
-        }
-
-
-        .about-header h1 {
-            color: #a9232b;
-
-            font-size: 46px;
-
-            margin-bottom: 18px;
-
-            line-height: 1.4;
-        }
-
-
-        .about-header p {
-            color: #555555;
-
-            font-size: 21px;
-
-            line-height: 1.9;
-        }
-
-
-        /* =========================
-           نبذة عن الدار
-        ========================= */
-
-        .about-section {
-            max-width: 1100px;
-
-            margin: auto;
-
-            padding: 75px 25px;
-        }
-
-
-        .about-title {
-            text-align: center;
-
-            color: #a9232b;
-
-            font-size: 36px;
-
-            margin-bottom: 40px;
-
-            line-height: 1.5;
-        }
-
-
-        .about-text {
-            background-color: #fafafa;
-
-            border: 1px solid #eeeeee;
-
-            border-radius: 14px;
-
-            padding: 45px 40px;
-
-            box-shadow: 0 5px 18px rgba(120, 20, 25, 0.06);
-        }
-
-
-        .about-text p {
-            color: #444444;
-
-            font-size: 21px;
-
-            font-weight: normal;
-
-            line-height: 2.2;
-
-            text-align: center;
-        }
-
-
-        /* =========================
-           معلومات الدار
-        ========================= */
-
-        .info-container {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 25px;
-
-            margin-top: 40px;
-        }
-
-
-        .info-card {
-            background-color: #ffffff;
-
-            border: 1px solid #eeeeee;
-
-            border-radius: 14px;
-
-            padding: 35px 20px;
-
-            text-align: center;
-
-            box-shadow: 0 5px 18px rgba(120, 20, 25, 0.07);
-
-            transition: 0.3s;
-        }
-
-
-        .info-card:hover {
-            transform: translateY(-5px);
-
-            border-color: #a9232b;
-        }
-
-
-        .info-card h3 {
-            color: #a9232b;
-
-            font-size: 23px;
-
-            margin-bottom: 15px;
-
-            line-height: 1.6;
-        }
-
-
-        .info-card p {
-            color: #555555;
-
-            font-size: 19px;
-
-            line-height: 2;
-        }
-
-
-        /* =========================
-           رسالتنا
-        ========================= */
-
-        .mission {
-            background-color: #fafafa;
-
-            border-top: 1px solid #eeeeee;
-
-            border-bottom: 1px solid #eeeeee;
-
-            padding: 75px 25px;
-
-            text-align: center;
-        }
-
-
-        .mission h2 {
-            color: #a9232b;
-
-            font-size: 36px;
-
-            margin-bottom: 28px;
-
-            line-height: 1.5;
-        }
-
-
-        .mission p {
-            max-width: 900px;
-
-            margin: auto;
-
-            color: #444444;
-
-            font-size: 21px;
-
-            line-height: 2.2;
-        }
-
-
-        /* =========================
-           المعارض
-        ========================= */
-
-        .exhibitions {
-            max-width: 1100px;
-
-            margin: auto;
-
-            padding: 75px 25px;
-
-            text-align: center;
-        }
-
-
-        .exhibitions h2 {
-            color: #a9232b;
-
-            font-size: 36px;
-
-            margin-bottom: 35px;
-
-            line-height: 1.5;
-        }
-
-
-        .exhibition-list {
-            display: flex;
-
-            justify-content: center;
-
-            flex-wrap: wrap;
-
-            gap: 18px;
-        }
-
-
-        .exhibition {
-            background-color: #ffffff;
-
-            border: 1px solid #eeeeee;
-
-            border-radius: 8px;
-
-            padding: 16px 28px;
-
-            color: #555555;
-
-            font-size: 19px;
-
-            box-shadow: 0 3px 10px rgba(120, 20, 25, 0.06);
-
-            transition: 0.3s;
-        }
-
-
-        .exhibition:hover {
-            color: #a9232b;
-
-            border-color: #a9232b;
-        }
-
-
-        /* =========================
-           الشعار
-        ========================= */
-
-        .slogan {
-            background-color: #a9232b;
-
-            color: #ffffff;
-
-            text-align: center;
-
-            padding: 50px 20px;
-        }
-
-
-        .slogan h2 {
-            font-size: 34px;
-
-            margin-bottom: 10px;
-
-            line-height: 1.5;
-        }
-
-
-        .slogan p {
-            font-size: 20px;
-
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           الفوتر
-        ========================= */
-
-        footer {
-            background-color: #8f1e25;
-
-            color: #ffffff;
-
-            text-align: center;
-
-            padding: 27px;
-        }
-
-
-        footer p {
-            font-size: 16px;
-
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           الموبايل
-        ========================= */
-
-        @media (max-width: 850px) {
-
-            .info-container {
-                grid-template-columns: 1fr;
-            }
-
-        }
-
-
-        @media (max-width: 600px) {
-
-            body {
-                font-size: 17px;
-            }
-
-
-            nav a {
-                width: 50%;
-
-                text-align: center;
-
-                padding: 14px 10px;
-
-                font-size: 17px;
-            }
-
-
-            .about-header {
-                padding: 55px 20px;
-            }
-
-
-            .about-header h1 {
-                font-size: 36px;
-            }
-
-
-            .about-header p {
-                font-size: 18px;
-            }
-
-
-            .about-section {
-                padding: 55px 20px;
-            }
-
-
-            .about-title {
-                font-size: 30px;
-            }
-
-
-            .about-text {
-                padding: 30px 20px;
-            }
-
-
-            .about-text p {
-                font-size: 19px;
-
-                line-height: 2.2;
-            }
-
-
-            .info-card h3 {
-                font-size: 21px;
-            }
-
-
-            .info-card p {
-                font-size: 18px;
-            }
-
-
-            .mission {
-                padding: 55px 20px;
-            }
-
-
-            .mission h2 {
-                font-size: 30px;
-            }
-
-
-            .mission p {
-                font-size: 19px;
-
-                line-height: 2.2;
-            }
-
-
-            .exhibitions {
-                padding: 55px 20px;
-            }
-
-
-            .exhibitions h2 {
-                font-size: 30px;
-            }
-
-
-            .exhibition {
-                font-size: 18px;
-
-                padding: 14px 22px;
-            }
-
-
-            .slogan h2 {
-                font-size: 29px;
-            }
-
-
-            .slogan p {
-                font-size: 18px;
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الكتب | دار اكتب للنشر والتوزيع</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f7f7f7;
+    color:#333;
+    line-height:1.8;
+}
+
+/* =========================
+   القائمة الرئيسية
+========================= */
+
+nav{
+    background:#a9232b;
+    padding:16px 20px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    margin:0 15px;
+}
+
+nav a:hover{
+    color:#ffe6e6;
+}
+
+/* =========================
+   عنوان الصفحة
+========================= */
+
+.page-header{
+    background:white;
+    text-align:center;
+    padding:45px 20px 25px;
+}
+
+.page-header h1{
+    color:#a9232b;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.page-header p{
+    font-size:20px;
+    color:#666;
+}
+
+/* =========================
+   التصنيفات داخل صفحة الكتب
+========================= */
+
+.categories{
+    background:white;
+    text-align:center;
+    padding:15px 15px 25px;
+    border-bottom:1px solid #ddd;
+}
+
+.categories-title{
+    color:#a9232b;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:15px;
+}
+
+.category-btn{
+    display:inline-block;
+    background:#f1f1f1;
+    color:#333;
+    border:2px solid #a9232b;
+    border-radius:25px;
+    padding:10px 22px;
+    margin:6px;
+    font-size:17px;
+    font-weight:bold;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.category-btn:hover{
+    background:#a9232b;
+    color:white;
+}
+
+/* =========================
+   البحث
+========================= */
+
+.search-container{
+    background:white;
+    padding:10px 20px 25px;
+    text-align:center;
+}
+
+.search-box{
+    width:90%;
+    max-width:650px;
+    padding:15px 20px;
+    border:2px solid #a9232b;
+    border-radius:30px;
+    font-size:18px;
+    font-family:Tahoma,Arial,sans-serif;
+    outline:none;
+    text-align:right;
+}
+
+.search-box:focus{
+    box-shadow:0 0 8px rgba(169,35,43,0.25);
+}
+
+/* =========================
+   الكتب
+========================= */
+
+.books-container{
+    max-width:1200px;
+    margin:35px auto;
+    padding:0 20px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+/* =========================
+   بطاقة الكتاب
+========================= */
+
+.book-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.10);
+    transition:0.3s;
+    text-align:center;
+}
+
+.book-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 8px 22px rgba(0,0,0,0.18);
+}
+
+.book-card img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    display:block;
+}
+
+.book-info{
+    padding:18px 15px 20px;
+}
+
+.book-info h2{
+    color:#a9232b;
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.book-info p{
+    font-size:16px;
+    color:#555;
+}
+
+.book-category{
+    display:inline-block;
+    margin-top:10px;
+    padding:4px 12px;
+    background:#f3dfe1;
+    color:#a9232b;
+    border-radius:15px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* =========================
+   الفوتر
+========================= */
+
+footer{
+    background:#a9232b;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:50px;
+    font-size:17px;
+}
+
+/* =========================
+   التابلت
+========================= */
+
+@media(max-width:1000px){
+
+    .books-container{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+/* =========================
+   الموبايل
+========================= */
+
+@media(max-width:700px){
+
+    nav a{
+        display:inline-block;
+        margin:5px 7px;
+        font-size:16px;
+    }
+
+    .page-header h1{
+        font-size:34px;
+    }
+
+    .page-header p{
+        font-size:17px;
+    }
+
+    .categories-title{
+        font-size:21px;
+    }
+
+    .category-btn{
+        font-size:15px;
+        padding:8px 15px;
+    }
+
+    .search-box{
+        width:95%;
+        font-size:16px;
+    }
+
+    .books-container{
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+        padding:0 12px;
+    }
+
+    .book-card img{
+        height:250px;
+    }
+
+    .book-info h2{
+        font-size:18px;
+    }
+
+    .book-info p{
+        font-size:14px;
+    }
+
+}
+
+/* =========================
+   الموبايل الصغير
+========================= */
+
+@media(max-width:450px){
+
+    .books-container{
+        grid-template-columns:1fr;
+    }
+
+    .book-card img{
+        height:auto;
+        max-height:500px;
+        object-fit:contain;
+        background:#eee;
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -525,281 +301,794 @@
 <body>
 
 
-    <!-- =========================
-         القائمة
-    ========================= -->
+<!-- =========================
+     القائمة الرئيسية
+========================= -->
 
-    <nav>
+<nav>
 
-        <a href="index.html">
-            الرئيسية
-        </a>
+<a href="index.html">
+الرئيسية
+</a>
 
-        <a href="books.html">
-            الكتب
-        </a>
+<a href="books.html">
+الكتب
+</a>
 
-        <a href="about.html">
-            من نحن
-        </a>
+<a href="about.html">
+من نحن
+</a>
 
-        <a href="contact.html">
-            تواصل معنا
-        </a>
+<a href="contact.html">
+تواصل معنا
+</a>
 
-    </nav>
+</nav>
 
 
-    <!-- =========================
-         رأس الصفحة
-    ========================= -->
+<!-- =========================
+     عنوان الصفحة
+========================= -->
 
-    <section class="about-header">
+<section class="page-header">
 
-        <h1>
-            من نحن
-        </h1>
+<h1>
+كتب دار اكتب
+</h1>
 
-        <p>
-            دار اكتب للنشر والتوزيع
-        </p>
+<p>
+اكتشف إصدارات دار اكتب للنشر والتوزيع
+</p>
 
-    </section>
+</section>
 
 
-    <!-- =========================
-         نبذة عن الدار
-    ========================= -->
+<!-- =========================
+     التصنيفات
+     داخل صفحة الكتب
+========================= -->
 
-    <section class="about-section">
+<div class="categories">
 
-        <h2 class="about-title">
-            عن دار اكتب
-        </h2>
+<div class="categories-title">
+تصفح الكتب حسب التصنيف
+</div>
 
 
-        <div class="about-text">
+<a
+href="novels.html"
+class="category-btn"
+>
+الروايات
+</a>
 
-            <p>
 
-                تأسست دار اكتب للنشر والتوزيع عام 2007،
-                وانطلقت بهدف فتح المجال أمام العديد من
-                المبدعين والأقلام الشابة، وتقديم أعمالهم
-                إلى القراء.
+<a
+href="stories.html"
+class="category-btn"
+>
+القصص
+</a>
 
-                <br><br>
 
-                وواصلت الدار اهتمامها بتبني الأقلام الشابة
-                إلى جانب الاستفادة من خبرات الأسماء الأدبية
-                ذات الخبرة، مع العمل على تطوير مختلف جوانب
-                صناعة الكتاب وتوسيع مجالات النشر.
+<a
+href="translations.html"
+class="category-btn"
+>
+الترجمات
+</a>
 
-                <br><br>
 
-                وتسعى دار اكتب إلى تقديم إصداراتها إلى
-                القارئ في مصر والوطن العربي، مع الإيمان
-                الدائم بأن القادم دوماً أفضل.
+<a
+href="thought.html"
+class="category-btn"
+>
+الأعمال الفكرية
+</a>
 
-            </p>
 
-        </div>
+<a
+href="psychology.html"
+class="category-btn"
+>
+علم النفس
+</a>
 
+</div>
 
-        <!-- =========================
-             معلومات الدار
-        ========================= -->
 
-        <div class="info-container">
+<!-- =========================
+     البحث
+========================= -->
 
+<div class="search-container">
 
-            <div class="info-card">
+<input
+type="text"
+id="searchBox"
+class="search-box"
+placeholder="🔍 ابحث عن اسم الكتاب أو المؤلف..."
+>
 
-                <h3>
-                    📅 سنة التأسيس
-                </h3>
+</div>
 
-                <p>
-                    2007
-                </p>
 
-            </div>
+<!-- =========================
+     جميع الكتب
+========================= -->
 
+<section class="books-container">
 
-            <div class="info-card">
 
-                <h3>
-                    📚 مجال العمل
-                </h3>
+<!-- 1 -->
 
-                <p>
-                    النشر والتوزيع
-                    <br>
-                    والنشر العام
-                </p>
+<div class="book-card">
 
-            </div>
+<img
+src="images/book1.jpg"
+alt="كيف تصنع مريضًا نفسيًا؟"
+>
 
+<div class="book-info">
 
-            <div class="info-card">
+<h2>
+كيف تصنع مريضًا نفسيًا؟
+</h2>
 
-                <h3>
-                    📍 الدولة
-                </h3>
+<p>
+كريم الشريف
+</p>
 
-                <p>
-                    مصر
-                    <br>
-                    القاهرة
-                </p>
+<span class="book-category">
+علم النفس
+</span>
 
-            </div>
+</div>
 
+</div>
 
-        </div>
 
-    </section>
+<!-- 2 -->
 
+<div class="book-card">
 
-    <!-- =========================
-         رسالتنا
-    ========================= -->
+<img
+src="images/book2.jpg"
+alt="ثورة الذكاء الاصطناعي"
+>
 
-    <section class="mission">
+<div class="book-info">
 
-        <h2>
-            رسالتنا
-        </h2>
+<h2>
+ثورة الذكاء الاصطناعي
+</h2>
 
-        <p>
+<p>
+د. علاء الدين السويفي
+</p>
 
-            دعم المبدعين والأقلام الشابة،
-            والمساهمة في تطوير صناعة الكتاب،
-            وتقديم إصدارات متنوعة للقراء،
-            والعمل على وصول الكتاب المصري
-            والعربي إلى أكبر عدد ممكن من القراء.
+<span class="book-category">
+أعمال فكرية
+</span>
 
-        </p>
+</div>
 
-    </section>
+</div>
 
 
-    <!-- =========================
-         المعارض
-    ========================= -->
+<!-- 3 -->
 
-    <section class="exhibitions">
+<div class="book-card">
 
-        <h2>
-            حضورنا في المعارض
-        </h2>
+<img
+src="images/book3.jpg"
+alt="إدارة الضغوط والأعباء النفسية"
+>
 
+<div class="book-info">
 
-        <div class="exhibition-list">
+<h2>
+إدارة الضغوط والأعباء النفسية
+</h2>
 
-            <div class="exhibition">
-                القاهرة
-            </div>
+<p>
+رودينة رجب
+</p>
 
-            <div class="exhibition">
-                أبو ظبي
-            </div>
+<span class="book-category">
+علم النفس
+</span>
 
-            <div class="exhibition">
-                الشارقة
-            </div>
+</div>
 
-            <div class="exhibition">
-                البحرين
-            </div>
+</div>
 
-            <div class="exhibition">
-                جدة
-            </div>
 
-        </div>
+<!-- 4 -->
 
-    </section>
+<div class="book-card">
 
+<img
+src="images/book4.jpg"
+alt="الحرب الإنسانية"
+>
 
-    <!-- =========================
-         الشعار
-    ========================= -->
+<div class="book-info">
 
-    <section class="slogan">
+<h2>
+الحرب الإنسانية
+</h2>
 
-        <h2>
-            القادم دوماً أفضل
-        </h2>
+<p>
+زهير اليعقوبي
+</p>
 
-        <p>
-            دار اكتب للنشر والتوزيع
-        </p>
+<span class="book-category">
+أعمال فكرية
+</span>
 
-    </section>
+</div>
 
+</div>
 
-    <!-- =========================
-         الفوتر
-    ========================= -->
 
-    <footer>
+<!-- 5 -->
 
-        <p>
-            © 2026 دار اكتب للنشر والتوزيع - جميع الحقوق محفوظة
-        </p>
+<div class="book-card">
 
-    </footer>
+<img
+src="images/book5.jpg"
+alt="تاريخ فلسطين وإسرائيل عبر العصور"
+>
 
+<div class="book-info">
 
-    <!-- =========================
-         انتقال بين الصفحات
-    ========================= -->
+<h2>
+تاريخ فلسطين وإسرائيل عبر العصور
+</h2>
 
-    <script>
+<p>
+د. هداية محمود العسولي
+</p>
 
-        document.querySelectorAll("nav a").forEach(function(link) {
+<span class="book-category">
+أعمال فكرية
+</span>
 
-            link.addEventListener("click", function(event) {
+</div>
 
-                var destination = this.href;
+</div>
 
-                var currentPage =
-                    window.location.href.split("/").pop();
 
-                var destinationPage =
-                    destination.split("/").pop();
+<!-- 6 -->
 
+<div class="book-card">
 
-                /* لو ضغط على نفس الصفحة */
+<img
+src="images/book6.jpg"
+alt="أحلام نارية"
+>
 
-                if (currentPage === destinationPage) {
+<div class="book-info">
 
-                    return;
+<h2>
+أحلام نارية
+</h2>
 
-                }
+<p>
+محمد إبراهيم محروس
+</p>
 
+<span class="book-category">
+رواية
+</span>
 
-                event.preventDefault();
+</div>
 
+</div>
 
-                /* تشغيل الـ Fade Out */
 
-                document.body.classList.add("page-exit");
+<!-- 7 -->
 
+<div class="book-card">
 
-                /* فتح الصفحة الجديدة بعد انتهاء التأثير */
+<img
+src="images/book7.jpg"
+alt="شهقة اليائسين"
+>
 
-                setTimeout(function() {
+<div class="book-info">
 
-                    window.location.href = destination;
+<h2>
+شهقة اليائسين
+</h2>
 
-                }, 350);
+<p>
+د. ياسر ثابت
+</p>
 
-            });
+<span class="book-category">
+أعمال فكرية
+</span>
 
-        });
+</div>
 
-    </script>
+</div>
+
+
+<!-- 8 -->
+
+<div class="book-card">
+
+<img
+src="images/book8.jpg"
+alt="الصهيونية"
+>
+
+<div class="book-info">
+
+<h2>
+الصهيونية
+</h2>
+
+<p>
+حسام كصاي
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 9 -->
+
+<div class="book-card">
+
+<img
+src="images/book9.jpg"
+alt="يهوديت"
+>
+
+<div class="book-info">
+
+<h2>
+يهوديت
+</h2>
+
+<p>
+عبد الحميد بشارة
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 10 -->
+
+<div class="book-card">
+
+<img
+src="images/book10.jpg"
+alt="مولانا الشيخ جواب"
+>
+
+<div class="book-info">
+
+<h2>
+مولانا الشيخ جواب
+</h2>
+
+<p>
+يسري أبو القاسم
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 11 -->
+
+<div class="book-card">
+
+<img
+src="images/book11.jpg"
+alt="التاريخ الثقافي للهستيريا والجنون"
+>
+
+<div class="book-info">
+
+<h2>
+التاريخ الثقافي للهستيريا والجنون
+</h2>
+
+<p>
+د. ياسر ثابت
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 12 -->
+
+<div class="book-card">
+
+<img
+src="images/book12.jpg"
+alt="عزيزي المتألم نفسيًا"
+>
+
+<div class="book-info">
+
+<h2>
+عزيزي المتألم نفسيًا
+</h2>
+
+<p>
+رفيق مرقص
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 13 -->
+
+<div class="book-card">
+
+<img
+src="images/book13.jpg"
+alt="قصص نجاح غيرت المستقبل"
+>
+
+<div class="book-info">
+
+<h2>
+قصص نجاح غيرت المستقبل
+</h2>
+
+<p>
+ترجمة محمد حسن وسارة الشحات
+</p>
+
+<span class="book-category">
+ترجمات
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 14 -->
+
+<div class="book-card">
+
+<img
+src="images/book14.jpg"
+alt="تأملات عصرية في الحملة الفرنسية"
+>
+
+<div class="book-info">
+
+<h2>
+تأملات عصرية في الحملة الفرنسية
+</h2>
+
+<p>
+محمد عرموس
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 15 -->
+
+<div class="book-card">
+
+<img
+src="images/book15.jpg"
+alt="رجال يناير ونساء ديسمبر"
+>
+
+<div class="book-info">
+
+<h2>
+رجال يناير ونساء ديسمبر
+</h2>
+
+<p>
+د. هاني حجاج
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 16 -->
+
+<div class="book-card">
+
+<img
+src="images/book16.jpg"
+alt="نحكي موسيقى"
+>
+
+<div class="book-info">
+
+<h2>
+نحكي موسيقى
+</h2>
+
+<p>
+محمود حافظ
+</p>
+
+<span class="book-category">
+قصص
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 17 -->
+
+<div class="book-card">
+
+<img
+src="images/book17.jpg"
+alt="هاتف الموتى"
+>
+
+<div class="book-info">
+
+<h2>
+هاتف الموتى
+</h2>
+
+<p>
+باسم مدحت
+</p>
+
+<span class="book-category">
+قصص
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 18 -->
+
+<div class="book-card">
+
+<img
+src="images/book18.jpg"
+alt="كريسمس القاهرة"
+>
+
+<div class="book-info">
+
+<h2>
+كريسمس القاهرة
+</h2>
+
+<p>
+سامح الجباس
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 19 -->
+
+<div class="book-card">
+
+<img
+src="images/book19.jpg"
+alt="حرب الثمانية أعوام"
+>
+
+<div class="book-info">
+
+<h2>
+حرب الثمانية أعوام
+</h2>
+
+<p>
+د. محمد عباس محسن
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 20 -->
+
+<div class="book-card">
+
+<img
+src="images/book20.jpg"
+alt="ليون تروتسكي"
+>
+
+<div class="book-info">
+
+<h2>
+ليون تروتسكي
+</h2>
+
+<p>
+حسام كصاي
+</p>
+
+<span class="book-category">
+ترجمات
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 21 -->
+
+<div class="book-card">
+
+<img
+src="images/book21.jpg"
+alt="السيدة كورنيليا"
+>
+
+<div class="book-info">
+
+<h2>
+السيدة كورنيليا
+</h2>
+
+<p>
+ميغيل دي ثربانتس
+</p>
+
+<span class="book-category">
+ترجمات
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 22 -->
+
+<div class="book-card">
+
+<img
+src="images/book22.jpg"
+alt="ما لا نقوله عن الحب"
+>
+
+<div class="book-info">
+
+<h2>
+ما لا نقوله عن الحب
+</h2>
+
+<p>
+د. هبة ياس
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- =========================
+     الفوتر
+========================= -->
+
+<footer>
+
+دار اكتب للنشر والتوزيع © 2026
+
+<br>
+
+جميع الحقوق محفوظة
+
+</footer>
+
+
+<!-- =========================
+     البحث
+========================= -->
+
+<script>
+
+document
+.getElementById("searchBox")
+.addEventListener("input", function(){
+
+let searchText =
+this.value.trim().toLowerCase();
+
+document
+.querySelectorAll(".book-card")
+.forEach(function(book){
+
+let bookText =
+book.innerText.toLowerCase();
+
+if(bookText.includes(searchText)){
+
+book.style.display = "";
+
+}else{
+
+book.style.display = "none";
+
+}
+
+});
+
+});
+
+</script>
 
 
 </body>
