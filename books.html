@@ -1,0 +1,2217 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الكتب | دار اكتب للنشر والتوزيع</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f7f7f7;
+    color:#333;
+    line-height:1.8;
+}
+
+/* =========================
+   القائمة الرئيسية
+========================= */
+
+nav{
+    background:#a9232b;
+    padding:16px 20px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    margin:0 15px;
+}
+
+nav a:hover{
+    color:#ffe6e6;
+}
+
+
+/* =========================
+   عنوان الصفحة
+========================= */
+
+.page-header{
+    background:white;
+    text-align:center;
+    padding:45px 20px 25px;
+}
+
+.page-header h1{
+    color:#a9232b;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.page-header p{
+    font-size:20px;
+    color:#666;
+}
+
+
+/* =========================
+   التصنيفات
+========================= */
+
+.categories{
+    background:white;
+    text-align:center;
+    padding:20px 15px 30px;
+    border-bottom:1px solid #ddd;
+}
+
+.categories-title{
+    color:#a9232b;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.category-btn{
+    display:inline-block;
+    background:#f1f1f1;
+    color:#333;
+    border:2px solid #a9232b;
+    border-radius:30px;
+    padding:10px 23px;
+    margin:6px;
+    font-size:17px;
+    font-weight:bold;
+    text-decoration:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.category-btn:hover{
+    background:#a9232b;
+    color:white;
+}
+
+.category-btn.active{
+    background:#a9232b;
+    color:white;
+}
+
+
+/* =========================
+   البحث
+========================= */
+
+.search-container{
+    background:white;
+    padding:5px 20px 30px;
+    text-align:center;
+}
+
+.search-box{
+    width:90%;
+    max-width:650px;
+    padding:15px 20px;
+    border:2px solid #a9232b;
+    border-radius:30px;
+    font-size:18px;
+    font-family:Tahoma,Arial,sans-serif;
+    outline:none;
+    text-align:right;
+}
+
+.search-box:focus{
+    box-shadow:0 0 8px rgba(169,35,43,0.25);
+}
+
+
+/* =========================
+   الكتب
+========================= */
+
+.books-container{
+    max-width:1200px;
+    margin:35px auto;
+    padding:0 20px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+
+/* =========================
+   بطاقة الكتاب
+========================= */
+
+.book-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.10);
+    transition:0.3s;
+    text-align:center;
+}
+
+.book-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 8px 22px rgba(0,0,0,0.18);
+}
+
+.book-card img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    display:block;
+}
+
+.book-info{
+    padding:18px 15px 20px;
+}
+
+.book-info h2{
+    color:#a9232b;
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.book-info p{
+    font-size:16px;
+    color:#555;
+}
+
+.book-category{
+    display:inline-block;
+    margin-top:10px;
+    padding:4px 12px;
+    background:#f3dfe1;
+    color:#a9232b;
+    border-radius:15px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+
+/* =========================
+   الفوتر
+========================= */
+
+footer{
+    background:#a9232b;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:50px;
+    font-size:17px;
+}
+
+
+/* =========================
+   التابلت
+========================= */
+
+@media(max-width:1000px){
+
+    .books-container{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+
+/* =========================
+   الموبايل
+========================= */
+
+@media(max-width:700px){
+
+    nav a{
+        display:inline-block;
+        margin:5px 7px;
+        font-size:16px;
+    }
+
+    .page-header h1{
+        font-size:34px;
+    }
+
+    .page-header p{
+        font-size:17px;
+    }
+
+    .categories-title{
+        font-size:21px;
+    }
+
+    .category-btn{
+        font-size:15px;
+        padding:8px 16px;
+    }
+
+    .search-box{
+        width:95%;
+        font-size:16px;
+    }
+
+    .books-container{
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+        padding:0 12px;
+    }
+
+    .book-card img{
+        height:250px;
+    }
+
+}
+
+
+/* =========================
+   الموبايل الصغير
+========================= */
+
+@media(max-width:450px){
+
+    .books-container{
+        grid-template-columns:1fr;
+    }
+
+    .book-card img{
+        height:auto;
+        max-height:500px;
+        object-fit:contain;
+        background:#eee;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     القائمة الرئيسية
+========================= -->
+
+<nav>
+
+<a href="index.html">
+الرئيسية
+</a>
+
+<a href="books.html">
+الكتب
+</a>
+
+<a href="about.html">
+من نحن
+</a>
+
+<a href="contact.html">
+تواصل معنا
+</a>
+
+</nav>
+
+
+<!-- =========================
+     عنوان الصفحة
+========================= -->
+
+<section class="page-header">
+
+<h1>
+كتب دار اكتب
+</h1>
+
+<p>
+اكتشف إصدارات دار اكتب للنشر والتوزيع
+</p>
+
+</section>
+
+
+<!-- =========================
+     التصنيفات
+========================= -->
+
+<div class="categories">
+
+<div class="categories-title">
+تصفح الكتب حسب التصنيف
+</div>
+
+
+<a
+href="books.html"
+class="category-btn active"
+>
+كل الكتب
+</a>
+
+
+<a
+href="novels.html"
+class="category-btn"
+>
+الروايات
+</a>
+
+
+<a
+href="stories.html"
+class="category-btn"
+>
+القصص
+</a>
+
+
+<a
+href="translations.html"
+class="category-btn"
+>
+الترجمات
+</a>
+
+
+<a
+href="thought.html"
+class="category-btn"
+>
+الأعمال الفكرية
+</a>
+
+
+<a
+href="psychology.html"
+class="category-btn"
+>
+علم النفس
+</a>
+
+</div>
+
+
+<!-- =========================
+     البحث
+========================= -->
+
+<div class="search-container">
+
+<input
+type="text"
+id="searchBox"
+class="search-box"
+placeholder="🔍 ابحث عن اسم الكتاب أو المؤلف..."
+>
+
+</div>
+
+
+<!-- =========================
+     جميع الكتب
+========================= -->
+
+<section class="books-container">
+
+
+<!-- 1 -->
+
+<div class="book-card">
+
+<img
+src="images/book1.jpg"
+alt="كيف تصنع مريضًا نفسيًا؟"
+>
+
+<div class="book-info">
+
+<h2>
+كيف تصنع مريضًا نفسيًا؟
+</h2>
+
+<p>
+كريم الشريف
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 2 -->
+
+<div class="book-card">
+
+<img
+src="images/book2.jpg"
+alt="ثورة الذكاء الاصطناعي"
+>
+
+<div class="book-info">
+
+<h2>
+ثورة الذكاء الاصطناعي
+</h2>
+
+<p>
+د. علاء الدين السويفي
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 3 -->
+
+<div class="book-card">
+
+<img
+src="images/book3.jpg"
+alt="إدارة الضغوط والأعباء النفسية"
+>
+
+<div class="book-info">
+
+<h2>
+إدارة الضغوط والأعباء النفسية
+</h2>
+
+<p>
+رودينة رجب
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 4 -->
+
+<div class="book-card">
+
+<img
+src="images/book4.jpg"
+alt="الحرب الإنسانية"
+>
+
+<div class="book-info">
+
+<h2>
+الحرب الإنسانية
+</h2>
+
+<p>
+زهير اليعقوبي
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 5 -->
+
+<div class="book-card">
+
+<img
+src="images/book5.jpg"
+alt="تاريخ فلسطين وإسرائيل عبر العصور"
+>
+
+<div class="book-info">
+
+<h2>
+تاريخ فلسطين وإسرائيل عبر العصور
+</h2>
+
+<p>
+د. هداية محمود العسولي
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 6 -->
+
+<div class="book-card">
+
+<img
+src="images/book6.jpg"
+alt="أحلام نارية"
+>
+
+<div class="book-info">
+
+<h2>
+أحلام نارية
+</h2>
+
+<p>
+محمد إبراهيم محروس
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 7 -->
+
+<div class="book-card">
+
+<img
+src="images/book7.jpg"
+alt="شهقة اليائسين"
+>
+
+<div class="book-info">
+
+<h2>
+شهقة اليائسين
+</h2>
+
+<p>
+د. ياسر ثابت
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 8 -->
+
+<div class="book-card">
+
+<img
+src="images/book8.jpg"
+alt="الصهيونية"
+>
+
+<div class="book-info">
+
+<h2>
+الصهيونية
+</h2>
+
+<p>
+حسام كصاي
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 9 -->
+
+<div class="book-card">
+
+<img
+src="images/book9.jpg"
+alt="يهوديت"
+>
+
+<div class="book-info">
+
+<h2>
+يهوديت
+</h2>
+
+<p>
+عبد الحميد بشارة
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 10 -->
+
+<div class="book-card">
+
+<img
+src="images/book10.jpg"
+alt="مولانا الشيخ جواب"
+>
+
+<div class="book-info">
+
+<h2>
+مولانا الشيخ جواب
+</h2>
+
+<p>
+يسري أبو القاسم
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 11 -->
+
+<div class="book-card">
+
+<img
+src="images/book11.jpg"
+alt="التاريخ الثقافي للهستيريا والجنون"
+>
+
+<div class="book-info">
+
+<h2>
+التاريخ الثقافي للهستيريا والجنون
+</h2>
+
+<p>
+د. ياسر ثابت
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 12 -->
+
+<div class="book-card">
+
+<img
+src="images/book12.jpg"
+alt="عزيزي المتألم نفسيًا"
+>
+
+<div class="book-info">
+
+<h2>
+عزيزي المتألم نفسيًا
+</h2>
+
+<p>
+رفيق مرقص
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 13 -->
+
+<div class="book-card">
+
+<img
+src="images/book13.jpg"
+alt="قصص نجاح غيرت المستقبل"
+>
+
+<div class="book-info">
+
+<h2>
+قصص نجاح غيرت المستقبل
+</h2>
+
+<p>
+ترجمة محمد حسن وسارة الشحات
+</p>
+
+<span class="book-category">
+ترجمات
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 14 -->
+
+<div class="book-card">
+
+<img
+src="images/book14.jpg"
+alt="تأملات عصرية في الحملة الفرنسية"
+>
+
+<div class="book-info">
+
+<h2>
+تأملات عصرية في الحملة الفرنسية
+</h2>
+
+<p>
+محمد عرموس
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 15 -->
+
+<div class="book-card">
+
+<img
+src="images/book15.jpg"
+alt="رجال يناير ونساء ديسمبر"
+>
+
+<div class="book-info">
+
+<h2>
+رجال يناير ونساء ديسمبر
+</h2>
+
+<p>
+د. هاني حجاج
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 16 -->
+
+<div class="book-card">
+
+<img
+src="images/book16.jpg"
+alt="نحكي موسيقى"
+>
+
+<div class="book-info">
+
+<h2>
+نحكي موسيقى
+</h2>
+
+<p>
+محمود حافظ
+</p>
+
+<span class="book-category">
+قصص
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 17 -->
+
+<div class="book-card">
+
+<img
+src="images/book17.jpg"
+alt="هاتف الموتى"
+>
+
+<div class="book-info">
+
+<h2>
+هاتف الموتى
+</h2>
+
+<p>
+باسم مدحت
+</p>
+
+<span class="book-category">
+قصص
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 18 -->
+
+<div class="book-card">
+
+<img
+src="images/book18.jpg"
+alt="كريسمس القاهرة"
+>
+
+<div class="book-info">
+
+<h2>
+كريسمس القاهرة
+</h2>
+
+<p>
+سامح الجباس
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 19 -->
+
+<div class="book-card">
+
+<img
+src="images/book19.jpg"
+alt="حرب الثمانية أعوام"
+>
+
+<div class="book-info">
+
+<h2>
+حرب الثمانية أعوام
+</h2>
+
+<p>
+د. محمد عباس محسن
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 20 -->
+
+<div class="book-card">
+
+<img
+src="images/book20.jpg"
+alt="ليون تروتسكي"
+>
+
+<div class="book-info">
+
+<h2>
+ليون تروتسكي
+</h2>
+
+<p>
+حسام كصاي
+</p>
+
+<span class="book-category">
+ترجمات
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 21 -->
+
+<div class="book-card">
+
+<img
+src="images/book21.jpg"
+alt="السيدة كورنيليا"
+>
+
+<div class="book-info">
+
+<h2>
+السيدة كورنيليا
+</h2>
+
+<p>
+ميغيل دي ثربانتس
+</p>
+
+<span class="book-category">
+ترجمات
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 22 -->
+
+<div class="book-card">
+
+<img
+src="images/book22.jpg"
+alt="ما لا نقوله عن الحب"
+>
+
+<div class="book-info">
+
+<h2>
+ما لا نقوله عن الحب
+</h2>
+
+<p>
+د. هبة ياس
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- =========================
+     الفوتر
+========================= -->
+
+<footer>
+
+دار اكتب للنشر والتوزيع © 2026
+
+<br>
+
+جميع الحقوق محفوظة
+
+</footer>
+
+
+<!-- =========================
+     البحث فقط
+========================= -->
+
+<script>
+
+document
+.getElementById("searchBox")
+.addEventListener("input", function(){
+
+    var searchText = this.value.toLowerCase();
+
+    var books = document.querySelectorAll(".book-card");
+
+    books.forEach(function(book){
+
+        var text = book.innerText.toLowerCase();
+
+        if(text.indexOf(searchText) !== -1){
+
+            book.style.display = "";
+
+        }else{
+
+            book.style.display = "none";
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+
+</html><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الكتب | دار اكتب للنشر والتوزيع</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f7f7f7;
+    color:#333;
+    line-height:1.8;
+}
+
+/* =========================
+   القائمة الرئيسية
+========================= */
+
+nav{
+    background:#a9232b;
+    padding:16px 20px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    margin:0 15px;
+}
+
+nav a:hover{
+    color:#ffe6e6;
+}
+
+
+/* =========================
+   عنوان الصفحة
+========================= */
+
+.page-header{
+    background:white;
+    text-align:center;
+    padding:45px 20px 25px;
+}
+
+.page-header h1{
+    color:#a9232b;
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.page-header p{
+    font-size:20px;
+    color:#666;
+}
+
+
+/* =========================
+   التصنيفات
+========================= */
+
+.categories{
+    background:white;
+    text-align:center;
+    padding:20px 15px 30px;
+    border-bottom:1px solid #ddd;
+}
+
+.categories-title{
+    color:#a9232b;
+    font-size:24px;
+    font-weight:bold;
+    margin-bottom:18px;
+}
+
+.category-btn{
+    display:inline-block;
+    background:#f1f1f1;
+    color:#333;
+    border:2px solid #a9232b;
+    border-radius:30px;
+    padding:10px 23px;
+    margin:6px;
+    font-size:17px;
+    font-weight:bold;
+    text-decoration:none;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.category-btn:hover{
+    background:#a9232b;
+    color:white;
+}
+
+.category-btn.active{
+    background:#a9232b;
+    color:white;
+}
+
+
+/* =========================
+   البحث
+========================= */
+
+.search-container{
+    background:white;
+    padding:5px 20px 30px;
+    text-align:center;
+}
+
+.search-box{
+    width:90%;
+    max-width:650px;
+    padding:15px 20px;
+    border:2px solid #a9232b;
+    border-radius:30px;
+    font-size:18px;
+    font-family:Tahoma,Arial,sans-serif;
+    outline:none;
+    text-align:right;
+}
+
+.search-box:focus{
+    box-shadow:0 0 8px rgba(169,35,43,0.25);
+}
+
+
+/* =========================
+   الكتب
+========================= */
+
+.books-container{
+    max-width:1200px;
+    margin:35px auto;
+    padding:0 20px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+
+/* =========================
+   بطاقة الكتاب
+========================= */
+
+.book-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.10);
+    transition:0.3s;
+    text-align:center;
+}
+
+.book-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 8px 22px rgba(0,0,0,0.18);
+}
+
+.book-card img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    display:block;
+}
+
+.book-info{
+    padding:18px 15px 20px;
+}
+
+.book-info h2{
+    color:#a9232b;
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.book-info p{
+    font-size:16px;
+    color:#555;
+}
+
+.book-category{
+    display:inline-block;
+    margin-top:10px;
+    padding:4px 12px;
+    background:#f3dfe1;
+    color:#a9232b;
+    border-radius:15px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+
+/* =========================
+   الفوتر
+========================= */
+
+footer{
+    background:#a9232b;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:50px;
+    font-size:17px;
+}
+
+
+/* =========================
+   التابلت
+========================= */
+
+@media(max-width:1000px){
+
+    .books-container{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+
+/* =========================
+   الموبايل
+========================= */
+
+@media(max-width:700px){
+
+    nav a{
+        display:inline-block;
+        margin:5px 7px;
+        font-size:16px;
+    }
+
+    .page-header h1{
+        font-size:34px;
+    }
+
+    .page-header p{
+        font-size:17px;
+    }
+
+    .categories-title{
+        font-size:21px;
+    }
+
+    .category-btn{
+        font-size:15px;
+        padding:8px 16px;
+    }
+
+    .search-box{
+        width:95%;
+        font-size:16px;
+    }
+
+    .books-container{
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+        padding:0 12px;
+    }
+
+    .book-card img{
+        height:250px;
+    }
+
+}
+
+
+/* =========================
+   الموبايل الصغير
+========================= */
+
+@media(max-width:450px){
+
+    .books-container{
+        grid-template-columns:1fr;
+    }
+
+    .book-card img{
+        height:auto;
+        max-height:500px;
+        object-fit:contain;
+        background:#eee;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     القائمة الرئيسية
+========================= -->
+
+<nav>
+
+<a href="index.html">
+الرئيسية
+</a>
+
+<a href="books.html">
+الكتب
+</a>
+
+<a href="about.html">
+من نحن
+</a>
+
+<a href="contact.html">
+تواصل معنا
+</a>
+
+</nav>
+
+
+<!-- =========================
+     عنوان الصفحة
+========================= -->
+
+<section class="page-header">
+
+<h1>
+كتب دار اكتب
+</h1>
+
+<p>
+اكتشف إصدارات دار اكتب للنشر والتوزيع
+</p>
+
+</section>
+
+
+<!-- =========================
+     التصنيفات
+========================= -->
+
+<div class="categories">
+
+<div class="categories-title">
+تصفح الكتب حسب التصنيف
+</div>
+
+
+<a
+href="books.html"
+class="category-btn active"
+>
+كل الكتب
+</a>
+
+
+<a
+href="novels.html"
+class="category-btn"
+>
+الروايات
+</a>
+
+
+<a
+href="stories.html"
+class="category-btn"
+>
+القصص
+</a>
+
+
+<a
+href="translations.html"
+class="category-btn"
+>
+الترجمات
+</a>
+
+
+<a
+href="thought.html"
+class="category-btn"
+>
+الأعمال الفكرية
+</a>
+
+
+<a
+href="psychology.html"
+class="category-btn"
+>
+علم النفس
+</a>
+
+</div>
+
+
+<!-- =========================
+     البحث
+========================= -->
+
+<div class="search-container">
+
+<input
+type="text"
+id="searchBox"
+class="search-box"
+placeholder="🔍 ابحث عن اسم الكتاب أو المؤلف..."
+>
+
+</div>
+
+
+<!-- =========================
+     جميع الكتب
+========================= -->
+
+<section class="books-container">
+
+
+<!-- 1 -->
+
+<div class="book-card">
+
+<img
+src="images/book1.jpg"
+alt="كيف تصنع مريضًا نفسيًا؟"
+>
+
+<div class="book-info">
+
+<h2>
+كيف تصنع مريضًا نفسيًا؟
+</h2>
+
+<p>
+كريم الشريف
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 2 -->
+
+<div class="book-card">
+
+<img
+src="images/book2.jpg"
+alt="ثورة الذكاء الاصطناعي"
+>
+
+<div class="book-info">
+
+<h2>
+ثورة الذكاء الاصطناعي
+</h2>
+
+<p>
+د. علاء الدين السويفي
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 3 -->
+
+<div class="book-card">
+
+<img
+src="images/book3.jpg"
+alt="إدارة الضغوط والأعباء النفسية"
+>
+
+<div class="book-info">
+
+<h2>
+إدارة الضغوط والأعباء النفسية
+</h2>
+
+<p>
+رودينة رجب
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 4 -->
+
+<div class="book-card">
+
+<img
+src="images/book4.jpg"
+alt="الحرب الإنسانية"
+>
+
+<div class="book-info">
+
+<h2>
+الحرب الإنسانية
+</h2>
+
+<p>
+زهير اليعقوبي
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 5 -->
+
+<div class="book-card">
+
+<img
+src="images/book5.jpg"
+alt="تاريخ فلسطين وإسرائيل عبر العصور"
+>
+
+<div class="book-info">
+
+<h2>
+تاريخ فلسطين وإسرائيل عبر العصور
+</h2>
+
+<p>
+د. هداية محمود العسولي
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 6 -->
+
+<div class="book-card">
+
+<img
+src="images/book6.jpg"
+alt="أحلام نارية"
+>
+
+<div class="book-info">
+
+<h2>
+أحلام نارية
+</h2>
+
+<p>
+محمد إبراهيم محروس
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 7 -->
+
+<div class="book-card">
+
+<img
+src="images/book7.jpg"
+alt="شهقة اليائسين"
+>
+
+<div class="book-info">
+
+<h2>
+شهقة اليائسين
+</h2>
+
+<p>
+د. ياسر ثابت
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 8 -->
+
+<div class="book-card">
+
+<img
+src="images/book8.jpg"
+alt="الصهيونية"
+>
+
+<div class="book-info">
+
+<h2>
+الصهيونية
+</h2>
+
+<p>
+حسام كصاي
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 9 -->
+
+<div class="book-card">
+
+<img
+src="images/book9.jpg"
+alt="يهوديت"
+>
+
+<div class="book-info">
+
+<h2>
+يهوديت
+</h2>
+
+<p>
+عبد الحميد بشارة
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 10 -->
+
+<div class="book-card">
+
+<img
+src="images/book10.jpg"
+alt="مولانا الشيخ جواب"
+>
+
+<div class="book-info">
+
+<h2>
+مولانا الشيخ جواب
+</h2>
+
+<p>
+يسري أبو القاسم
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 11 -->
+
+<div class="book-card">
+
+<img
+src="images/book11.jpg"
+alt="التاريخ الثقافي للهستيريا والجنون"
+>
+
+<div class="book-info">
+
+<h2>
+التاريخ الثقافي للهستيريا والجنون
+</h2>
+
+<p>
+د. ياسر ثابت
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 12 -->
+
+<div class="book-card">
+
+<img
+src="images/book12.jpg"
+alt="عزيزي المتألم نفسيًا"
+>
+
+<div class="book-info">
+
+<h2>
+عزيزي المتألم نفسيًا
+</h2>
+
+<p>
+رفيق مرقص
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 13 -->
+
+<div class="book-card">
+
+<img
+src="images/book13.jpg"
+alt="قصص نجاح غيرت المستقبل"
+>
+
+<div class="book-info">
+
+<h2>
+قصص نجاح غيرت المستقبل
+</h2>
+
+<p>
+ترجمة محمد حسن وسارة الشحات
+</p>
+
+<span class="book-category">
+ترجمات
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 14 -->
+
+<div class="book-card">
+
+<img
+src="images/book14.jpg"
+alt="تأملات عصرية في الحملة الفرنسية"
+>
+
+<div class="book-info">
+
+<h2>
+تأملات عصرية في الحملة الفرنسية
+</h2>
+
+<p>
+محمد عرموس
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 15 -->
+
+<div class="book-card">
+
+<img
+src="images/book15.jpg"
+alt="رجال يناير ونساء ديسمبر"
+>
+
+<div class="book-info">
+
+<h2>
+رجال يناير ونساء ديسمبر
+</h2>
+
+<p>
+د. هاني حجاج
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 16 -->
+
+<div class="book-card">
+
+<img
+src="images/book16.jpg"
+alt="نحكي موسيقى"
+>
+
+<div class="book-info">
+
+<h2>
+نحكي موسيقى
+</h2>
+
+<p>
+محمود حافظ
+</p>
+
+<span class="book-category">
+قصص
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 17 -->
+
+<div class="book-card">
+
+<img
+src="images/book17.jpg"
+alt="هاتف الموتى"
+>
+
+<div class="book-info">
+
+<h2>
+هاتف الموتى
+</h2>
+
+<p>
+باسم مدحت
+</p>
+
+<span class="book-category">
+قصص
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 18 -->
+
+<div class="book-card">
+
+<img
+src="images/book18.jpg"
+alt="كريسمس القاهرة"
+>
+
+<div class="book-info">
+
+<h2>
+كريسمس القاهرة
+</h2>
+
+<p>
+سامح الجباس
+</p>
+
+<span class="book-category">
+رواية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 19 -->
+
+<div class="book-card">
+
+<img
+src="images/book19.jpg"
+alt="حرب الثمانية أعوام"
+>
+
+<div class="book-info">
+
+<h2>
+حرب الثمانية أعوام
+</h2>
+
+<p>
+د. محمد عباس محسن
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 20 -->
+
+<div class="book-card">
+
+<img
+src="images/book20.jpg"
+alt="ليون تروتسكي"
+>
+
+<div class="book-info">
+
+<h2>
+ليون تروتسكي
+</h2>
+
+<p>
+حسام كصاي
+</p>
+
+<span class="book-category">
+ترجمات
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 21 -->
+
+<div class="book-card">
+
+<img
+src="images/book21.jpg"
+alt="السيدة كورنيليا"
+>
+
+<div class="book-info">
+
+<h2>
+السيدة كورنيليا
+</h2>
+
+<p>
+ميغيل دي ثربانتس
+</p>
+
+<span class="book-category">
+ترجمات
+</span>
+
+</div>
+
+</div>
+
+
+<!-- 22 -->
+
+<div class="book-card">
+
+<img
+src="images/book22.jpg"
+alt="ما لا نقوله عن الحب"
+>
+
+<div class="book-info">
+
+<h2>
+ما لا نقوله عن الحب
+</h2>
+
+<p>
+د. هبة ياس
+</p>
+
+<span class="book-category">
+أعمال فكرية
+</span>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- =========================
+     الفوتر
+========================= -->
+
+<footer>
+
+دار اكتب للنشر والتوزيع © 2026
+
+<br>
+
+جميع الحقوق محفوظة
+
+</footer>
+
+
+<!-- =========================
+     البحث فقط
+========================= -->
+
+<script>
+
+document
+.getElementById("searchBox")
+.addEventListener("input", function(){
+
+    var searchText = this.value.toLowerCase();
+
+    var books = document.querySelectorAll(".book-card");
+
+    books.forEach(function(book){
+
+        var text = book.innerText.toLowerCase();
+
+        if(text.indexOf(searchText) !== -1){
+
+            book.style.display = "";
+
+        }else{
+
+            book.style.display = "none";
+
+        }
+
+    });
+
+});
+
+</script>
+
+
+</body>
+
+</html>
