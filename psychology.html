@@ -1,0 +1,395 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>علم النفس | دار اكتب للنشر والتوزيع</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f7f7f7;
+    color:#333;
+    line-height:1.8;
+}
+
+/* القائمة الرئيسية */
+
+nav{
+    background:#a9232b;
+    padding:16px 20px;
+    text-align:center;
+    box-shadow:0 3px 10px rgba(0,0,0,0.15);
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    margin:0 15px;
+}
+
+nav a:hover{
+    color:#ffe6e6;
+}
+
+/* عنوان الصفحة */
+
+.page-header{
+    background:white;
+    text-align:center;
+    padding:45px 20px 25px;
+}
+
+.page-header h1{
+    color:#a9232b;
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.page-header p{
+    font-size:19px;
+    color:#666;
+}
+
+/* التصنيفات */
+
+.categories{
+    background:white;
+    text-align:center;
+    padding:15px 15px 25px;
+    border-bottom:1px solid #ddd;
+}
+
+.category-btn{
+    display:inline-block;
+    background:#f1f1f1;
+    color:#333;
+    border:2px solid #a9232b;
+    border-radius:25px;
+    padding:9px 20px;
+    margin:5px;
+    font-size:16px;
+    font-weight:bold;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.category-btn:hover{
+    background:#a9232b;
+    color:white;
+}
+
+.category-btn.active{
+    background:#a9232b;
+    color:white;
+}
+
+/* الكتب */
+
+.books-container{
+    max-width:1200px;
+    margin:35px auto;
+    padding:0 20px;
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+/* بطاقة الكتاب */
+
+.book-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,0.10);
+    transition:0.3s;
+    text-align:center;
+}
+
+.book-card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 8px 22px rgba(0,0,0,0.18);
+}
+
+.book-card img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    display:block;
+}
+
+.book-info{
+    padding:18px 15px 20px;
+}
+
+.book-info h2{
+    color:#a9232b;
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.book-info p{
+    font-size:16px;
+    color:#555;
+}
+
+/* الفوتر */
+
+footer{
+    background:#a9232b;
+    color:white;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:50px;
+    font-size:17px;
+}
+
+/* تابلت */
+
+@media(max-width:1000px){
+
+    .books-container{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+/* موبايل */
+
+@media(max-width:700px){
+
+    nav a{
+        display:inline-block;
+        margin:5px 7px;
+        font-size:16px;
+    }
+
+    .page-header h1{
+        font-size:32px;
+    }
+
+    .page-header p{
+        font-size:17px;
+    }
+
+    .category-btn{
+        font-size:15px;
+        padding:8px 15px;
+    }
+
+    .books-container{
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+        padding:0 12px;
+    }
+
+    .book-card img{
+        height:250px;
+    }
+
+}
+
+/* موبايل صغير */
+
+@media(max-width:450px){
+
+    .books-container{
+        grid-template-columns:1fr;
+    }
+
+    .book-card img{
+        height:auto;
+        max-height:500px;
+        object-fit:contain;
+        background:#eee;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- القائمة الرئيسية -->
+
+<nav>
+
+<a href="index.html">
+الرئيسية
+</a>
+
+<a href="books.html">
+الكتب
+</a>
+
+<a href="about.html">
+من نحن
+</a>
+
+<a href="contact.html">
+تواصل معنا
+</a>
+
+</nav>
+
+
+<!-- عنوان الصفحة -->
+
+<section class="page-header">
+
+<h1>
+علم النفس
+</h1>
+
+<p>
+إصدارات علم النفس من دار اكتب للنشر والتوزيع
+</p>
+
+</section>
+
+
+<!-- التصنيفات -->
+
+<div class="categories">
+
+<a href="books.html" class="category-btn">
+كل الكتب
+</a>
+
+<a href="novels.html" class="category-btn">
+الروايات
+</a>
+
+<a href="stories.html" class="category-btn">
+القصص
+</a>
+
+<a href="translations.html" class="category-btn">
+الترجمات
+</a>
+
+<a href="thought.html" class="category-btn">
+الأعمال الفكرية
+</a>
+
+<a href="psychology.html" class="category-btn active">
+علم النفس
+</a>
+
+</div>
+
+
+<!-- كتب علم النفس -->
+
+<section class="books-container">
+
+
+<!-- كيف تصنع مريضًا نفسيًا؟ -->
+
+<div class="book-card">
+
+<img
+src="images/book1.jpg"
+alt="كيف تصنع مريضًا نفسيًا؟"
+>
+
+<div class="book-info">
+
+<h2>
+كيف تصنع مريضًا نفسيًا؟
+</h2>
+
+<p>
+كريم الشريف
+</p>
+
+</div>
+
+</div>
+
+
+<!-- إدارة الضغوط والأعباء النفسية -->
+
+<div class="book-card">
+
+<img
+src="images/book3.jpg"
+alt="إدارة الضغوط والأعباء النفسية"
+>
+
+<div class="book-info">
+
+<h2>
+إدارة الضغوط والأعباء النفسية
+</h2>
+
+<p>
+رودينة رجب
+</p>
+
+</div>
+
+</div>
+
+
+<!-- عزيزي المتألم نفسيًا -->
+
+<div class="book-card">
+
+<img
+src="images/book12.jpg"
+alt="عزيزي المتألم نفسيًا"
+>
+
+<div class="book-info">
+
+<h2>
+عزيزي المتألم نفسيًا
+</h2>
+
+<p>
+رفيق مرقص
+</p>
+
+</div>
+
+</div>
+
+
+</section>
+
+
+<!-- الفوتر -->
+
+<footer>
+
+دار اكتب للنشر والتوزيع © 2026
+
+<br>
+
+جميع الحقوق محفوظة
+
+</footer>
+
+
+</body>
+
+</html>
