@@ -24,7 +24,7 @@
         }
 
         /* =========================
-           القائمة
+           القائمة الرئيسية
         ========================= */
 
         nav {
@@ -358,7 +358,6 @@
             id="searchBox"
             class="search-box"
             placeholder="🔍 ابحث عن اسم الكتاب أو المؤلف..."
-            onkeyup="searchBooks()"
         >
 
     </div>
@@ -373,7 +372,7 @@
         <button
             type="button"
             class="category-btn active"
-            onclick="filterBooks('all', this)"
+            data-category="all"
         >
             كل الكتب
         </button>
@@ -381,7 +380,7 @@
         <button
             type="button"
             class="category-btn"
-            onclick="filterBooks('novels', this)"
+            data-category="novels"
         >
             الروايات
         </button>
@@ -389,7 +388,7 @@
         <button
             type="button"
             class="category-btn"
-            onclick="filterBooks('stories', this)"
+            data-category="stories"
         >
             القصص
         </button>
@@ -397,7 +396,7 @@
         <button
             type="button"
             class="category-btn"
-            onclick="filterBooks('translations', this)"
+            data-category="translations"
         >
             الترجمات
         </button>
@@ -405,7 +404,7 @@
         <button
             type="button"
             class="category-btn"
-            onclick="filterBooks('thought', this)"
+            data-category="thought"
         >
             الأعمال الفكرية
         </button>
@@ -413,7 +412,7 @@
         <button
             type="button"
             class="category-btn"
-            onclick="filterBooks('psychology', this)"
+            data-category="psychology"
         >
             علم النفس
         </button>
@@ -425,7 +424,7 @@
          الكتب
     ========================= -->
 
-    <section class="books-container" id="booksContainer">
+    <section class="books-container">
 
 
         <!-- 1 -->
@@ -894,11 +893,13 @@
 
 
     <!-- =========================
-         لا توجد نتائج
+         رسالة عدم وجود نتائج
     ========================= -->
 
     <div id="noResults">
+
         لا توجد كتب مطابقة للبحث أو التصنيف المختار.
+
     </div>
 
 
@@ -909,7 +910,9 @@
     <footer>
 
         دار اكتب للنشر والتوزيع © 2026
+
         <br>
+
         جميع الحقوق محفوظة
 
     </footer>
@@ -925,48 +928,54 @@
 
 
         /* =========================
-           فلترة التصنيفات
+           تشغيل التصنيفات
         ========================= */
 
-        function filterBooks(category, button) {
+        document
+            .querySelectorAll(".category-btn")
+            .forEach(function(button) {
 
-            currentCategory = category;
+                button.addEventListener("click", function() {
+
+                    currentCategory =
+                        this.getAttribute("data-category");
 
 
-            // إزالة التحديد من كل الأزرار
+                    /* إزالة التحديد من جميع الأزرار */
 
-            document
-                .querySelectorAll(".category-btn")
-                .forEach(function(btn) {
+                    document
+                        .querySelectorAll(".category-btn")
+                        .forEach(function(btn) {
 
-                    btn.classList.remove("active");
+                            btn.classList.remove("active");
+
+                        });
+
+
+                    /* تحديد الزر الحالي */
+
+                    this.classList.add("active");
+
+
+                    /* تطبيق التصنيف */
+
+                    filterBooks();
 
                 });
 
-
-            // تحديد الزر الحالي
-
-            button.classList.add("active");
-
-
-            // تطبيق الفلترة
-
-            searchBooks();
-
-        }
+            });
 
 
         /* =========================
-           البحث
+           فلترة الكتب
         ========================= */
 
-        function searchBooks() {
-
-            const searchBox =
-                document.getElementById("searchBox");
+        function filterBooks() {
 
             const searchText =
-                searchBox.value
+                document
+                    .getElementById("searchBox")
+                    .value
                     .trim()
                     .toLowerCase();
 
@@ -989,9 +998,3 @@
 
 
                 const bookText =
-                    book.innerText.toLowerCase();
-
-
-                const categoryMatch =
-                    currentCategory === "all" ||
-                    category
