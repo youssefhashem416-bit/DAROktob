@@ -1,0 +1,994 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>تفاصيل الكتاب - دار اكتب للنشر والتوزيع</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f7f7f7;
+    color:#333;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    background:#a9232b;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    margin:0 18px;
+}
+
+nav a:hover{
+    opacity:.85;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.book-page{
+    width:92%;
+    max-width:1100px;
+    margin:45px auto;
+}
+
+
+/* =========================
+   BOOK BOX
+========================= */
+
+.book-box,
+#error{
+    background:#fff;
+    border-radius:18px;
+    padding:35px;
+    box-shadow:0 5px 20px rgba(0,0,0,.1);
+}
+
+
+/* =========================
+   BOOK MAIN
+========================= */
+
+.book-main{
+    display:flex;
+    gap:40px;
+    align-items:flex-start;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.book-image{
+    width:330px;
+    flex-shrink:0;
+}
+
+.book-image img{
+    width:100%;
+    max-height:500px;
+    object-fit:cover;
+    border-radius:12px;
+    box-shadow:0 5px 18px rgba(0,0,0,.2);
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.book-details{
+    flex:1;
+}
+
+.book-details h1{
+    color:#a9232b;
+    font-size:40px;
+    line-height:1.5;
+    margin:10px 0 15px;
+}
+
+.author{
+    font-size:23px;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.category{
+    display:inline-block;
+    background:#a9232b;
+    color:#fff;
+    padding:8px 18px;
+    border-radius:25px;
+    font-size:17px;
+    margin-bottom:25px;
+}
+
+
+/* =========================
+   INFO
+========================= */
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.info-box{
+    background:#f8f8f8;
+    border-right:4px solid #a9232b;
+    padding:15px;
+    border-radius:8px;
+}
+
+.info-box strong{
+    display:block;
+    color:#a9232b;
+    font-size:17px;
+    margin-bottom:6px;
+}
+
+.info-box span{
+    font-size:17px;
+}
+
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.description{
+    margin-top:35px;
+    padding-top:25px;
+    border-top:1px solid #ddd;
+}
+
+.description h2{
+    color:#a9232b;
+    font-size:28px;
+}
+
+.description p{
+    font-size:19px;
+    line-height:2;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.button{
+    display:inline-block;
+
+    margin-top:20px;
+
+    background:#a9232b;
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:13px 25px;
+
+    border-radius:8px;
+
+    font-size:19px;
+    font-weight:bold;
+
+    border:0;
+
+    cursor:pointer;
+}
+
+.button:hover{
+    background:#8d1d24;
+}
+
+.back{
+    background:#555;
+    margin-right:10px;
+}
+
+.back:hover{
+    background:#333;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+#error{
+    display:none;
+    text-align:center;
+}
+
+#error h1{
+    color:#a9232b;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#a9232b;
+    color:#fff;
+    text-align:center;
+    padding:25px 10px;
+    margin-top:50px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:750px){
+
+    nav a{
+        display:inline-block;
+        margin:6px 8px;
+        font-size:17px;
+    }
+
+    .book-page{
+        width:94%;
+        margin:30px auto;
+    }
+
+    .book-box,
+    #error{
+        padding:20px;
+    }
+
+    .book-main{
+        display:block;
+    }
+
+    .book-image{
+        width:100%;
+        max-width:330px;
+        margin:0 auto 30px;
+    }
+
+    .book-details h1{
+        font-size:31px;
+    }
+
+    .author{
+        font-size:19px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .description p{
+        font-size:17px;
+    }
+
+    .button{
+        width:100%;
+        text-align:center;
+        margin-right:0;
+    }
+
+    .back{
+        margin-right:0;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+<a href="index.html">
+الرئيسية
+</a>
+
+<a href="books.html">
+الكتب
+</a>
+
+<a href="about.html">
+من نحن
+</a>
+
+<a href="contact.html">
+تواصل معنا
+</a>
+
+</nav>
+
+
+<div class="book-page">
+
+
+<!-- =========================
+     BOOK CONTENT
+========================= -->
+
+<div
+id="bookContent"
+class="book-box"
+style="display:block"
+>
+
+
+<div class="book-main">
+
+
+<div class="book-image">
+
+<img
+id="bookImage"
+src=""
+alt=""
+>
+
+</div>
+
+
+<div class="book-details">
+
+
+<h1 id="bookTitle">
+</h1>
+
+
+<div
+class="author"
+id="bookAuthor">
+</div>
+
+
+<div
+class="category"
+id="bookCategory">
+</div>
+
+
+<div class="info-grid">
+
+
+<div class="info-box">
+
+<strong>
+دار النشر
+</strong>
+
+<span>
+دار اكتب للنشر والتوزيع
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+اللغة
+</strong>
+
+<span>
+العربية
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+عدد الصفحات
+</strong>
+
+<span id="bookPages">
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+المقاس
+</strong>
+
+<span id="bookSize">
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+سنة النشر
+</strong>
+
+<span id="bookYear">
+</span>
+
+</div>
+
+
+<div class="info-box">
+
+<strong>
+نوع الكتاب
+</strong>
+
+<span id="bookType">
+</span>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="description">
+
+
+<h2>
+عن الكتاب
+</h2>
+
+
+<p id="bookDescription">
+</p>
+
+
+<!-- مهم جدًا: الزر مربوط بالكتاب تلقائيًا -->
+
+<a
+id="orderButton"
+href="order.html"
+class="button"
+>
+اطلب الكتاب
+</a>
+
+
+<a
+href="books.html"
+class="button back"
+>
+العودة إلى الكتب
+</a>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     ERROR
+========================= -->
+
+<div
+id="error"
+>
+
+<h1>
+الكتاب غير موجود
+</h1>
+
+<p>
+تأكد من فتح الكتاب من صفحة الكتب.
+</p>
+
+<a
+href="books.html"
+class="button"
+>
+العودة إلى الكتب
+</a>
+
+</div>
+
+
+</div>
+
+
+<footer>
+
+دار اكتب للنشر والتوزيع © جميع الحقوق محفوظة
+
+</footer>
+
+
+<script>
+
+/* =========================
+   BOOKS
+========================= */
+
+var books={
+
+
+1:{
+title:"كيف تصنع مريضًا نفسيًا؟",
+author:"كريمة الشريف",
+category:"علم النفس",
+image:"images/book1.jpg",
+pages:"226",
+size:"17 × 24 سم",
+year:"2020",
+type:"رواية / علم النفس",
+description:"رحلة تجمع بين التشويق والصحة النفسية، وتدعو القارئ إلى اكتشاف ما قد يختبئ داخل النفس البشرية."
+},
+
+
+2:{
+title:"ثورة الذكاء الاصطناعي",
+author:"د. علاء الدين السويفي",
+category:"الأعمال الفكرية",
+image:"images/book2.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"2024",
+type:"كتاب فكري",
+description:"كتاب يناقش ثورة الذكاء الاصطناعي والتحولات التي أحدثتها التكنولوجيا في حياة الإنسان والمجتمع."
+},
+
+
+3:{
+title:"إدارة الضغوط والأعباء النفسية",
+author:"رودينة رجب",
+category:"علم النفس",
+image:"images/book3.jpg",
+pages:"114",
+size:"21 × 14 سم",
+year:"2023",
+type:"تنمية بشرية وتطوير الذات",
+description:"كتاب يقدم أفكارًا وخطوات عملية لفهم الضغوط النفسية والتعامل معها واستعادة قدر أكبر من الاتزان."
+},
+
+
+4:{
+title:"الحرب الإنسانية",
+author:"زهير اليعقوبي",
+category:"الأعمال الفكرية",
+image:"images/book4.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"كتاب فكري",
+description:"كتاب يتناول الحرب وآثارها من زاوية إنسانية وفكرية."
+},
+
+
+5:{
+title:"تاريخ فلسطين وإسرائيل عبر العصور",
+author:"د. هداية محمود العسولي",
+category:"الأعمال الفكرية",
+image:"images/book5.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"كتاب تاريخي",
+description:"دراسة تتناول تاريخ فلسطين وإسرائيل عبر مراحل وعصور مختلفة."
+},
+
+
+6:{
+title:"أحلام نارية",
+author:"محمد إبراهيم محروس",
+category:"الروايات",
+image:"images/book6.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"رواية",
+description:"رواية من إصدارات دار اكتب للنشر والتوزيع."
+},
+
+
+7:{
+title:"شهقة اليائسين",
+author:"د. ياسر ثابت",
+category:"الأعمال الفكرية",
+image:"images/book7.jpg",
+pages:"342",
+size:"21 × 14 سم",
+year:"2020",
+type:"دراسة اجتماعية وفكرية",
+description:"دراسة تتناول ظاهرة الانتحار وأبعادها النفسية والاجتماعية والسياسية."
+},
+
+
+8:{
+title:"الصهيونية",
+author:"حسام كصاي",
+category:"الأعمال الفكرية",
+image:"images/book8.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"كتاب فكري",
+description:"كتاب يتناول موضوع الصهيونية من منظور فكري وتاريخي."
+},
+
+
+9:{
+title:"يهوديت",
+author:"عبد الحميد بشارة",
+category:"الروايات",
+image:"images/book9.jpg",
+pages:"206",
+size:"غير محدد",
+year:"2024",
+type:"رواية اجتماعية وسياسية",
+description:"رواية ذات أبعاد اجتماعية وسياسية من إصدارات دار اكتب للنشر والتوزيع."
+},
+
+
+10:{
+title:"مولانا الشيخ جواب",
+author:"يسري أبو القاسم",
+category:"الروايات",
+image:"images/book10.jpg",
+pages:"203",
+size:"24 × 17 سم",
+year:"2019",
+type:"رواية صوفية فلسفية",
+description:"رواية صوفية فلسفية وجودية تتناول عوالم الذات والبحث عن وجود الله، وتتخللها حكايات رومانسية."
+},
+
+
+11:{
+title:"التاريخ الثقافي للهستيريا والجنون",
+author:"د. ياسر ثابت",
+category:"الأعمال الفكرية",
+image:"images/book11.jpg",
+pages:"236",
+size:"غير محدد",
+year:"2026",
+type:"كتاب فكري في علم النفس",
+description:"يتناول التاريخ الثقافي للهستيريا والجنون وتطور النظرة إليهما عبر الزمن."
+},
+
+
+12:{
+title:"عزيزي المتألم نفسيًا",
+author:"رفيق مرقص",
+category:"علم النفس",
+image:"images/book12.jpg",
+pages:"154",
+size:"24 × 17 سم",
+year:"2025",
+type:"علم نفس وتنمية ذاتية",
+description:"كتاب عن الألم النفسي والمشاركة الإنسانية؛ لا يقدم روشتة علاج، بل يشارك القارئ تجارب من مروا بآلام مشابهة واستمروا."
+},
+
+
+13:{
+title:"قصص نجاح غيرت المستقبل",
+author:"ترجمة محمد حسن وسارة الشحات",
+category:"الترجمات",
+image:"images/book13.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"كتاب مترجم",
+description:"مجموعة من قصص النجاح الملهمة."
+},
+
+
+14:{
+title:"تأملات عصرية في الحملة الفرنسية",
+author:"محمد عرموس",
+category:"الأعمال الفكرية",
+image:"images/book14.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"كتاب تاريخي وفكري",
+description:"قراءة وتأملات عصرية في أحداث الحملة الفرنسية."
+},
+
+
+15:{
+title:"رجال يناير ونساء ديسمبر",
+author:"د. هاني حجاج",
+category:"الأعمال الفكرية",
+image:"images/book15.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"2024",
+type:"كتاب فكري",
+description:"كتاب يتناول العلاقات الإنسانية والفروق في الطبيعة الشخصية والعاطفية، من منظور تحليلي."
+},
+
+
+16:{
+title:"نحكي موسيقى",
+author:"محمود حافظ",
+category:"القصص",
+image:"images/book16.jpg",
+pages:"212",
+size:"24 × 17 سم",
+year:"2021",
+type:"مجموعة قصصية",
+description:"قصص من وحي الألحان، تستلهم حكاياتها من الموسيقى وتحوّل النغمات إلى شخصيات وتجارب إنسانية."
+},
+
+
+17:{
+title:"هاتف الموتى",
+author:"باسم مدحت",
+category:"القصص",
+image:"images/book17.jpg",
+pages:"232",
+size:"24 × 17 سم",
+year:"2023",
+type:"مجموعة قصصية",
+description:"مجموعة قصص تدور حول الخوف بأشكاله المختلفة، من الأشباح والهواتف الملعونة إلى عوالم وتهديدات أكثر رعبًا."
+},
+
+
+18:{
+title:"كريسمس القاهرة",
+author:"سامح الجباس",
+category:"الروايات",
+image:"images/book18.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"رواية",
+description:"رواية من إصدارات دار اكتب للنشر والتوزيع."
+},
+
+
+19:{
+title:"حرب الثمانية أعوام",
+author:"د. محمد عباس محسن",
+category:"الأعمال الفكرية",
+image:"images/book19.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"كتاب فكري وتاريخي",
+description:"كتاب يتناول حربًا امتدت لثمانية أعوام من منظور تاريخي وفكري."
+},
+
+
+20:{
+title:"ليون تروتسكي: فيلسوف الثورات",
+author:"حسام كصاي",
+category:"الترجمات",
+image:"images/book20.jpg",
+pages:"120",
+size:"غير محدد",
+year:"2026",
+type:"دراسة تاريخية وفكر سياسي",
+description:"دراسة عن ليون تروتسكي، حياته وأفكاره وسياقه التاريخي والفكر السياسي المرتبط بالثورات."
+},
+
+
+21:{
+title:"السيدة كورنيليا",
+author:"ميغيل دي ثربانتس",
+category:"الترجمات",
+image:"images/book21.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"ترجمة أدبية",
+description:"عمل أدبي مترجم من أعمال ميغيل دي ثربانتس."
+},
+
+
+22:{
+title:"ما لا نقوله عن الحب",
+author:"د. هبة ياس",
+category:"الأعمال الفكرية",
+image:"images/book22.jpg",
+pages:"غير محدد",
+size:"غير محدد",
+year:"غير محددة",
+type:"كتاب فكري",
+description:"كتاب يتناول الحب والجوانب التي قد لا نتحدث عنها في العلاقات والمشاعر الإنسانية."
+}
+
+};
+
+
+/* =========================
+   GET BOOK NUMBER
+========================= */
+
+function getBookNumber(){
+
+var params =
+new URLSearchParams(
+window.location.search
+);
+
+var number =
+parseInt(
+params.get("book"),
+10
+);
+
+if(
+isNaN(number)
+){
+return 0;
+}
+
+return number;
+
+}
+
+
+var number =
+getBookNumber();
+
+var book =
+books[number];
+
+
+/* =========================
+   DISPLAY
+========================= */
+
+if(book){
+
+document.getElementById(
+"bookContent"
+).style.display =
+"block";
+
+
+document.title =
+book.title+
+" - دار اكتب للنشر والتوزيع";
+
+
+document.getElementById(
+"bookTitle"
+).innerHTML =
+book.title;
+
+
+document.getElementById(
+"bookAuthor"
+).innerHTML =
+book.author;
+
+
+document.getElementById(
+"bookCategory"
+).innerHTML =
+book.category;
+
+
+document.getElementById(
+"bookImage"
+).src =
+book.image;
+
+
+document.getElementById(
+"bookImage"
+).alt =
+book.title;
+
+
+document.getElementById(
+"bookPages"
+).innerHTML =
+book.pages;
+
+
+document.getElementById(
+"bookSize"
+).innerHTML =
+book.size;
+
+
+document.getElementById(
+"bookYear"
+).innerHTML =
+book.year;
+
+
+document.getElementById(
+"bookType"
+).innerHTML =
+book.type;
+
+
+document.getElementById(
+"bookDescription"
+).innerHTML =
+book.description;
+
+
+/* =========================
+   أهم تعديل
+   ربط زر الطلب بالكتاب
+========================= */
+
+document.getElementById(
+"orderButton"
+).href =
+"order.html?book="+
+number;
+
+}
+
+
+/* =========================
+   INVALID
+========================= */
+
+else{
+
+document.getElementById(
+"bookContent"
+).style.display =
+"none";
+
+
+document.getElementById(
+"error"
+).style.display =
+"block";
+
+}
+
+</script>
+
+
+</body>
+
+</html>
