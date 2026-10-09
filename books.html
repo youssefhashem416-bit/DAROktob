@@ -1,0 +1,2254 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>الكتب - دار اكتب للنشر والتوزيع</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Tahoma,Arial,sans-serif;
+    background:#f7f7f7;
+    color:#333;
+    overflow-x:hidden;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+    background:#a9232b;
+    padding:16px 10px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-size:20px;
+    font-weight:bold;
+    margin:0 14px;
+    display:inline-block;
+    padding:8px 4px;
+}
+
+nav a:hover{
+    color:#ffe6e6;
+}
+
+
+/* =========================
+   CART LINK
+========================= */
+
+.cart-link{
+    position:relative;
+}
+
+.cart-count{
+    display:inline-block;
+    min-width:24px;
+    height:24px;
+    line-height:24px;
+    padding:0 6px;
+    margin-right:5px;
+    background:#fff;
+    color:#a9232b;
+    border-radius:20px;
+    font-size:14px;
+    font-weight:bold;
+    vertical-align:middle;
+}
+
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title{
+    text-align:center;
+    padding:35px 15px 20px;
+}
+
+.page-title h1{
+    color:#a9232b;
+    font-size:38px;
+    margin:0 0 10px;
+}
+
+.page-title p{
+    font-size:20px;
+    color:#666;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+    width:90%;
+    max-width:600px;
+    margin:0 auto 25px;
+}
+
+.search-box input{
+    width:100%;
+    padding:15px;
+    border:2px solid #ddd;
+    border-radius:10px;
+    font-size:18px;
+    text-align:right;
+    outline:none;
+}
+
+.search-box input:focus{
+    border-color:#a9232b;
+}
+
+
+/* =========================
+   CATEGORIES
+========================= */
+
+.categories{
+    text-align:center;
+    margin:20px auto 35px;
+    width:95%;
+}
+
+.category-button{
+    background:white;
+    color:#a9232b;
+    border:2px solid #a9232b;
+    padding:10px 18px;
+    margin:5px;
+    border-radius:25px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.category-button:hover,
+.category-button.active{
+    background:#a9232b;
+    color:white;
+}
+
+
+/* =========================
+   BOOKS
+========================= */
+
+.books-container{
+    width:92%;
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.book-card{
+    background:white;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
+    transition:.2s;
+}
+
+.book-card:hover{
+    transform:translateY(-5px);
+}
+
+.book-link{
+    display:block;
+    color:inherit;
+    text-decoration:none;
+}
+
+.book-card img{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    display:block;
+}
+
+.book-info{
+    padding:18px;
+    text-align:center;
+}
+
+.book-info h2{
+    color:#a9232b;
+    font-size:22px;
+    margin:5px 0 10px;
+}
+
+.book-info p{
+    font-size:18px;
+    margin:8px 0;
+}
+
+.book-category{
+    display:inline-block;
+    background:#a9232b;
+    color:white;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:14px;
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+.book-price{
+    color:#a9232b;
+    font-size:19px;
+    font-weight:bold;
+    margin:12px 0;
+}
+
+
+/* =========================
+   ADD TO CART
+========================= */
+
+.add-cart-btn{
+    width:100%;
+    border:0;
+    background:#a9232b;
+    color:white;
+    padding:12px 10px;
+    border-radius:8px;
+    font-size:17px;
+    font-family:Tahoma,Arial,sans-serif;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:8px;
+}
+
+.add-cart-btn:hover{
+    background:#871c23;
+}
+
+.add-cart-btn.disabled{
+    background:#999;
+    cursor:not-allowed;
+}
+
+
+/* =========================
+   CART MESSAGE
+========================= */
+
+.cart-message{
+    display:none;
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:9999;
+    background:#a9232b;
+    color:white;
+    padding:15px 20px;
+    border-radius:10px;
+    box-shadow:0 4px 15px rgba(0,0,0,.2);
+    font-size:16px;
+    font-weight:bold;
+}
+
+
+/* =========================
+   NO RESULTS
+========================= */
+
+#noResults{
+    display:none;
+    text-align:center;
+    color:#a9232b;
+    font-size:22px;
+    margin:50px 0;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#a9232b;
+    color:#fff;
+    text-align:center;
+    padding:25px 15px;
+    margin-top:50px;
+    line-height:1.9;
+    font-size:17px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:1000px){
+
+    .books-container{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    nav{
+        padding:12px 8px;
+    }
+
+    nav a{
+        display:inline-block;
+        margin:5px 6px;
+        font-size:17px;
+        padding:6px 3px;
+    }
+
+    .page-title{
+        padding:28px 12px 18px;
+    }
+
+    .page-title h1{
+        font-size:30px;
+    }
+
+    .page-title p{
+        font-size:17px;
+        line-height:1.8;
+    }
+
+    .search-box{
+        width:92%;
+    }
+
+    .search-box input{
+        font-size:16px;
+        padding:13px;
+    }
+
+    .categories{
+        width:94%;
+        margin-bottom:25px;
+    }
+
+    .category-button{
+        font-size:15px;
+        padding:9px 13px;
+        margin:4px;
+    }
+
+    .books-container{
+        grid-template-columns:repeat(2,1fr);
+        gap:15px;
+        width:94%;
+    }
+
+    .book-card img{
+        height:270px;
+    }
+
+    .book-info{
+        padding:13px 8px;
+    }
+
+    .book-info h2{
+        font-size:18px;
+        line-height:1.6;
+    }
+
+    .book-info p{
+        font-size:15px;
+        line-height:1.6;
+    }
+
+    .book-category{
+        font-size:12px;
+        padding:5px 9px;
+    }
+
+    .book-price{
+        font-size:17px;
+    }
+
+    .add-cart-btn{
+        font-size:15px;
+        padding:11px 6px;
+    }
+
+    footer{
+        font-size:15px;
+        padding:22px 10px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:450px){
+
+    nav a{
+        font-size:15px;
+        margin:4px 4px;
+    }
+
+    .books-container{
+        grid-template-columns:1fr;
+        width:90%;
+    }
+
+    .book-card img{
+        height:auto;
+        max-height:450px;
+    }
+
+    .book-info h2{
+        font-size:20px;
+    }
+
+    .book-info p{
+        font-size:16px;
+    }
+
+    .cart-count{
+        min-width:21px;
+        height:21px;
+        line-height:21px;
+        font-size:12px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     CART MESSAGE
+========================= -->
+
+<div
+id="cartMessage"
+class="cart-message"
+>
+تمت إضافة الكتاب إلى السلة 🛒
+</div>
+
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+<a href="index.html">
+الرئيسية
+</a>
+
+<a href="books.html">
+الكتب
+</a>
+
+<a href="about.html">
+من نحن
+</a>
+
+<a href="contact.html">
+تواصل معنا
+</a>
+
+<a
+href="order.html"
+class="cart-link"
+>
+🛒 السلة
+<span
+id="cartCount"
+class="cart-count"
+>
+0
+</span>
+</a>
+
+</nav>
+
+
+
+<!-- =========================
+     PAGE TITLE
+========================= -->
+
+<div class="page-title">
+
+<h1>
+كتب دار اكتب
+</h1>
+
+<p>
+اكتشف إصدارات دار اكتب للنشر والتوزيع
+</p>
+
+</div>
+
+
+
+<!-- =========================
+     SEARCH
+========================= -->
+
+<div class="search-box">
+
+<input
+id="searchInput"
+type="text"
+placeholder="ابحث عن كتاب أو مؤلف..."
+>
+
+</div>
+
+
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<div class="categories">
+
+<button
+class="category-button active"
+data-category="all"
+>
+كل الكتب
+</button>
+
+<button
+class="category-button"
+data-category="الروايات"
+>
+الروايات
+</button>
+
+<button
+class="category-button"
+data-category="القصص"
+>
+القصص
+</button>
+
+<button
+class="category-button"
+data-category="الترجمات"
+>
+الترجمات
+</button>
+
+<button
+class="category-button"
+data-category="الأعمال الفكرية"
+>
+الأعمال الفكرية
+</button>
+
+<button
+class="category-button"
+data-category="علم النفس"
+>
+علم النفس
+</button>
+
+</div>
+
+
+
+<!-- =========================
+     BOOKS
+========================= -->
+
+<div
+class="books-container"
+id="booksContainer"
+>
+
+
+<!-- 1 -->
+
+<div
+class="book-card"
+data-category="علم النفس"
+data-search="كيف تصنع مريضًا نفسيًا؟ كريمة الشريف"
+>
+
+<a
+class="book-link"
+href="book.html?book=1"
+>
+
+<img
+src="images/book1.jpg"
+alt="كيف تصنع مريضًا نفسيًا؟"
+>
+
+<div class="book-info">
+
+<h2>
+كيف تصنع مريضًا نفسيًا؟
+</h2>
+
+<p>
+كريمة الشريف
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+250 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="1"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 2 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="ثورة الذكاء الاصطناعي د. علاء الدين السويفي"
+>
+
+<a
+class="book-link"
+href="book.html?book=2"
+>
+
+<img
+src="images/book2.jpg"
+alt="ثورة الذكاء الاصطناعي"
+>
+
+<div class="book-info">
+
+<h2>
+ثورة الذكاء الاصطناعي
+</h2>
+
+<p>
+د. علاء الدين السويفي
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+السعر قريبًا
+</div>
+
+<button
+class="add-cart-btn disabled"
+type="button"
+>
+السعر قريبًا
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 3 -->
+
+<div
+class="book-card"
+data-category="علم النفس"
+data-search="إدارة الضغوط والأعباء النفسية رودينة رجب"
+>
+
+<a
+class="book-link"
+href="book.html?book=3"
+>
+
+<img
+src="images/book3.jpg"
+alt="إدارة الضغوط والأعباء النفسية"
+>
+
+<div class="book-info">
+
+<h2>
+إدارة الضغوط والأعباء النفسية
+</h2>
+
+<p>
+رودينة رجب
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+175 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="3"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 4 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="الحرب الإنسانية زهير اليعقوبي"
+>
+
+<a
+class="book-link"
+href="book.html?book=4"
+>
+
+<img
+src="images/book4.jpg"
+alt="الحرب الإنسانية"
+>
+
+<div class="book-info">
+
+<h2>
+الحرب الإنسانية
+</h2>
+
+<p>
+زهير اليعقوبي
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+240 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="4"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 5 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="تاريخ فلسطين وإسرائيل عبر العصور د. هداية محمود العسولي"
+>
+
+<a
+class="book-link"
+href="book.html?book=5"
+>
+
+<img
+src="images/book5.jpg"
+alt="تاريخ فلسطين وإسرائيل عبر العصور"
+>
+
+<div class="book-info">
+
+<h2>
+تاريخ فلسطين وإسرائيل عبر العصور
+</h2>
+
+<p>
+د. هداية محمود العسولي
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+السعر قريبًا
+</div>
+
+<button
+class="add-cart-btn disabled"
+type="button"
+>
+السعر قريبًا
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 6 -->
+
+<div
+class="book-card"
+data-category="الروايات"
+data-search="أحلام نارية محمد إبراهيم محروس"
+>
+
+<a
+class="book-link"
+href="book.html?book=6"
+>
+
+<img
+src="images/book6.jpg"
+alt="أحلام نارية"
+>
+
+<div class="book-info">
+
+<h2>
+أحلام نارية
+</h2>
+
+<p>
+محمد إبراهيم محروس
+</p>
+
+<span class="book-category">
+الروايات
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+210 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="6"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 7 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="شهقة اليائسين د. ياسر ثابت"
+>
+
+<a
+class="book-link"
+href="book.html?book=7"
+>
+
+<img
+src="images/book7.jpg"
+alt="شهقة اليائسين"
+>
+
+<div class="book-info">
+
+<h2>
+شهقة اليائسين
+</h2>
+
+<p>
+د. ياسر ثابت
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+350 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="7"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 8 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="الصهيونية حسام كصاي"
+>
+
+<a
+class="book-link"
+href="book.html?book=8"
+>
+
+<img
+src="images/book8.jpg"
+alt="الصهيونية"
+>
+
+<div class="book-info">
+
+<h2>
+الصهيونية
+</h2>
+
+<p>
+حسام كصاي
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+السعر قريبًا
+</div>
+
+<button
+class="add-cart-btn disabled"
+type="button"
+>
+السعر قريبًا
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 9 -->
+
+<div
+class="book-card"
+data-category="الروايات"
+data-search="يهوديت عبد الحميد بشارة"
+>
+
+<a
+class="book-link"
+href="book.html?book=9"
+>
+
+<img
+src="images/book9.jpg"
+alt="يهوديت"
+>
+
+<div class="book-info">
+
+<h2>
+يهوديت
+</h2>
+
+<p>
+عبد الحميد بشارة
+</p>
+
+<span class="book-category">
+الروايات
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+225 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="9"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 10 -->
+
+<div
+class="book-card"
+data-category="الروايات"
+data-search="مولانا الشيخ جواب يسري أبو القاسم"
+>
+
+<a
+class="book-link"
+href="book.html?book=10"
+>
+
+<img
+src="images/book10.jpg"
+alt="مولانا الشيخ جواب"
+>
+
+<div class="book-info">
+
+<h2>
+مولانا الشيخ جواب
+</h2>
+
+<p>
+يسري أبو القاسم
+</p>
+
+<span class="book-category">
+الروايات
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+367 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="10"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 11 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="التاريخ الثقافي للهستيريا والجنون د. ياسر ثابت"
+>
+
+<a
+class="book-link"
+href="book.html?book=11"
+>
+
+<img
+src="images/book11.jpg"
+alt="التاريخ الثقافي للهستيريا والجنون"
+>
+
+<div class="book-info">
+
+<h2>
+التاريخ الثقافي للهستيريا والجنون
+</h2>
+
+<p>
+د. ياسر ثابت
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+السعر قريبًا
+</div>
+
+<button
+class="add-cart-btn disabled"
+type="button"
+>
+السعر قريبًا
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 12 -->
+
+<div
+class="book-card"
+data-category="علم النفس"
+data-search="عزيزي المتألم نفسيًا رفيق مرقص"
+>
+
+<a
+class="book-link"
+href="book.html?book=12"
+>
+
+<img
+src="images/book12.jpg"
+alt="عزيزي المتألم نفسيًا"
+>
+
+<div class="book-info">
+
+<h2>
+عزيزي المتألم نفسيًا
+</h2>
+
+<p>
+رفيق مرقص
+</p>
+
+<span class="book-category">
+علم النفس
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+200 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="12"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 13 -->
+
+<div
+class="book-card"
+data-category="الترجمات"
+data-search="قصص نجاح غيرت المستقبل ترجمة محمد حسن وسارة الشحات"
+>
+
+<a
+class="book-link"
+href="book.html?book=13"
+>
+
+<img
+src="images/book13.jpg"
+alt="قصص نجاح غيرت المستقبل"
+>
+
+<div class="book-info">
+
+<h2>
+قصص نجاح غيرت المستقبل
+</h2>
+
+<p>
+ترجمة محمد حسن وسارة الشحات
+</p>
+
+<span class="book-category">
+الترجمات
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+446 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="13"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 14 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="تأملات عصرية في الحملة الفرنسية محمد عرموس"
+>
+
+<a
+class="book-link"
+href="book.html?book=14"
+>
+
+<img
+src="images/book14.jpg"
+alt="تأملات عصرية في الحملة الفرنسية"
+>
+
+<div class="book-info">
+
+<h2>
+تأملات عصرية في الحملة الفرنسية
+</h2>
+
+<p>
+محمد عرموس
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+200 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="14"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 15 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="رجال يناير ونساء ديسمبر د. هاني حجاج"
+>
+
+<a
+class="book-link"
+href="book.html?book=15"
+>
+
+<img
+src="images/book15.jpg"
+alt="رجال يناير ونساء ديسمبر"
+>
+
+<div class="book-info">
+
+<h2>
+رجال يناير ونساء ديسمبر
+</h2>
+
+<p>
+د. هاني حجاج
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+200 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="15"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 16 -->
+
+<div
+class="book-card"
+data-category="القصص"
+data-search="نحكي موسيقى محمود حافظ"
+>
+
+<a
+class="book-link"
+href="book.html?book=16"
+>
+
+<img
+src="images/book16.jpg"
+alt="نحكي موسيقى"
+>
+
+<div class="book-info">
+
+<h2>
+نحكي موسيقى
+</h2>
+
+<p>
+محمود حافظ
+</p>
+
+<span class="book-category">
+القصص
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+235 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="16"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 17 -->
+
+<div
+class="book-card"
+data-category="القصص"
+data-search="هاتف الموتى باسم مدحت"
+>
+
+<a
+class="book-link"
+href="book.html?book=17"
+>
+
+<img
+src="images/book17.jpg"
+alt="هاتف الموتى"
+>
+
+<div class="book-info">
+
+<h2>
+هاتف الموتى
+</h2>
+
+<p>
+باسم مدحت
+</p>
+
+<span class="book-category">
+القصص
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+230 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="17"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 18 -->
+
+<div
+class="book-card"
+data-category="الروايات"
+data-search="كريسمس القاهرة سامح الجباس"
+>
+
+<a
+class="book-link"
+href="book.html?book=18"
+>
+
+<img
+src="images/book18.jpg"
+alt="كريسمس القاهرة"
+>
+
+<div class="book-info">
+
+<h2>
+كريسمس القاهرة
+</h2>
+
+<p>
+سامح الجباس
+</p>
+
+<span class="book-category">
+الروايات
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+175 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="18"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 19 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="حرب الثمانية أعوام د. محمد عباس محسن"
+>
+
+<a
+class="book-link"
+href="book.html?book=19"
+>
+
+<img
+src="images/book19.jpg"
+alt="حرب الثمانية أعوام"
+>
+
+<div class="book-info">
+
+<h2>
+حرب الثمانية أعوام
+</h2>
+
+<p>
+د. محمد عباس محسن
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+240 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="19"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 20 -->
+
+<div
+class="book-card"
+data-category="الترجمات"
+data-search="ليون تروتسكي فيلسوف الثورات حسام كصاي"
+>
+
+<a
+class="book-link"
+href="book.html?book=20"
+>
+
+<img
+src="images/book20.jpg"
+alt="ليون تروتسكي"
+>
+
+<div class="book-info">
+
+<h2>
+ليون تروتسكي: فيلسوف الثورات
+</h2>
+
+<p>
+حسام كصاي
+</p>
+
+<span class="book-category">
+الترجمات
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+577 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="20"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 21 -->
+
+<div
+class="book-card"
+data-category="الترجمات"
+data-search="السيدة كورنيليا ميغيل دي ثربانتس"
+>
+
+<a
+class="book-link"
+href="book.html?book=21"
+>
+
+<img
+src="images/book21.jpg"
+alt="السيدة كورنيليا"
+>
+
+<div class="book-info">
+
+<h2>
+السيدة كورنيليا
+</h2>
+
+<p>
+ميغيل دي ثربانتس
+</p>
+
+<span class="book-category">
+الترجمات
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+175 جنيه
+</div>
+
+<button
+class="add-cart-btn"
+data-book="21"
+>
+🛒 أضف إلى السلة
+</button>
+
+</div>
+
+</div>
+
+
+
+<!-- 22 -->
+
+<div
+class="book-card"
+data-category="الأعمال الفكرية"
+data-search="ما لا نقوله عن الحب د. هبة ياس"
+>
+
+<a
+class="book-link"
+href="book.html?book=22"
+>
+
+<img
+src="images/book22.jpg"
+alt="ما لا نقوله عن الحب"
+>
+
+<div class="book-info">
+
+<h2>
+ما لا نقوله عن الحب
+</h2>
+
+<p>
+د. هبة ياس
+</p>
+
+<span class="book-category">
+الأعمال الفكرية
+</span>
+
+</div>
+
+</a>
+
+<div class="book-info">
+
+<div class="book-price">
+السعر قريبًا
+</div>
+
+<button
+class="add-cart-btn disabled"
+type="button"
+>
+السعر قريبًا
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div id="noResults">
+لا توجد كتب مطابقة للبحث.
+</div>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div>
+دار اكتب للنشر والتوزيع
+</div>
+
+<div>
+© جميع الحقوق محفوظة
+</div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================
+   بيانات السلة
+========================= */
+
+var cartKey = "darOktobCart";
+
+
+function getCart(){
+
+    var cart = localStorage.getItem(cartKey);
+
+    if(!cart){
+        return [];
+    }
+
+    try{
+
+        return JSON.parse(cart);
+
+    }catch(error){
+
+        return [];
+
+    }
+
+}
+
+
+function saveCart(cart){
+
+    localStorage.setItem(
+        cartKey,
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =========================
+   تحديث رقم السلة
+========================= */
+
+function updateCartCount(){
+
+    var cart = getCart();
+
+    var count = 0;
+
+    for(var i=0;i<cart.length;i++){
+
+        count += cart[i].quantity;
+
+    }
+
+    document.getElementById("cartCount").textContent =
+        count;
+
+}
+
+
+/* =========================
+   بيانات الكتب للسلة
+========================= */
+
+var cartBooks = {
+
+1:{
+title:"كيف تصنع مريضًا نفسيًا؟",
+author:"كريمة الشريف",
+image:"images/book1.jpg",
+price:250
+},
+
+3:{
+title:"إدارة الضغوط والأعباء النفسية",
+author:"رودينة رجب",
+image:"images/book3.jpg",
+price:175
+},
+
+4:{
+title:"الحرب الإنسانية",
+author:"زهير اليعقوبي",
+image:"images/book4.jpg",
+price:240
+},
+
+6:{
+title:"أحلام نارية",
+author:"محمد إبراهيم محروس",
+image:"images/book6.jpg",
+price:210
+},
+
+7:{
+title:"شهقة اليائسين",
+author:"د. ياسر ثابت",
+image:"images/book7.jpg",
+price:350
+},
+
+9:{
+title:"يهوديت",
+author:"عبد الحميد بشارة",
+image:"images/book9.jpg",
+price:225
+},
+
+10:{
+title:"مولانا الشيخ جواب",
+author:"يسري أبو القاسم",
+image:"images/book10.jpg",
+price:367
+},
+
+12:{
+title:"عزيزي المتألم نفسيًا",
+author:"رفيق مرقص",
+image:"images/book12.jpg",
+price:200
+},
+
+13:{
+title:"قصص نجاح غيرت المستقبل",
+author:"ترجمة محمد حسن وسارة الشحات",
+image:"images/book13.jpg",
+price:446
+},
+
+14:{
+title:"تأملات عصرية في الحملة الفرنسية",
+author:"محمد عرموس",
+image:"images/book14.jpg",
+price:200
+},
+
+15:{
+title:"رجال يناير ونساء ديسمبر",
+author:"د. هاني حجاج",
+image:"images/book15.jpg",
+price:200
+},
+
+16:{
+title:"نحكي موسيقى",
+author:"محمود حافظ",
+image:"images/book16.jpg",
+price:235
+},
+
+17:{
+title:"هاتف الموتى",
+author:"باسم مدحت",
+image:"images/book17.jpg",
+price:230
+},
+
+18:{
+title:"كريسمس القاهرة",
+author:"سامح الجباس",
+image:"images/book18.jpg",
+price:175
+},
+
+19:{
+title:"حرب الثمانية أعوام",
+author:"د. محمد عباس محسن",
+image:"images/book19.jpg",
+price:240
+},
+
+20:{
+title:"ليون تروتسكي: فيلسوف الثورات",
+author:"حسام كصاي",
+image:"images/book20.jpg",
+price:577
+},
+
+21:{
+title:"السيدة كورنيليا",
+author:"ميغيل دي ثربانتس",
+image:"images/book21.jpg",
+price:175
+}
+
+};
+
+
+/* =========================
+   إضافة كتاب للسلة
+========================= */
+
+var addButtons =
+    document.getElementsByClassName("add-cart-btn");
+
+
+for(var i=0;i<addButtons.length;i++){
+
+    addButtons[i].onclick=function(event){
+
+        event.preventDefault();
+        event.stopPropagation();
+
+
+        var bookId =
+            parseInt(
+                this.getAttribute("data-book"),
+                10
+            );
+
+
+        var selectedBook =
+            cartBooks[bookId];
+
+
+        if(!selectedBook){
+            return;
+        }
+
+
+        var cart =
+            getCart();
+
+
+        var found = false;
+
+
+        for(var j=0;j<cart.length;j++){
+
+            if(cart[j].id === bookId){
+
+                cart[j].quantity++;
+
+                found = true;
+
+                break;
+
+            }
+
+        }
+
+
+        if(!found){
+
+            cart.push({
+
+                id:bookId,
+
+                title:selectedBook.title,
+
+                author:selectedBook.author,
+
+                image:selectedBook.image,
+
+                price:selectedBook.price,
+
+                quantity:1
+
+            });
+
+        }
+
+
+        saveCart(cart);
+
+        updateCartCount();
+
+        showCartMessage(
+            "تمت إضافة «" +
+            selectedBook.title +
+            "» إلى السلة 🛒"
+        );
+
+    };
+
+}
+
+
+/* =========================
+   رسالة الإضافة
+========================= */
+
+function showCartMessage(message){
+
+    var box =
+        document.getElementById("cartMessage");
+
+
+    box.textContent =
+        message;
+
+
+    box.style.display =
+        "block";
+
+
+    setTimeout(function(){
+
+        box.style.display =
+            "none";
+
+    },2200);
+
+}
+
+
+/* =========================
+   البحث والتصنيفات
+========================= */
+
+var currentCategory="all";
+
+
+function filterBooks(){
+
+    var s=document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    var c=document.getElementsByClassName("book-card");
+
+    var n=0;
+
+
+    for(var i=0;i<c.length;i++){
+
+        var okCat=
+            currentCategory==="all" ||
+            c[i].getAttribute("data-category")===currentCategory;
+
+
+        var okSearch=
+            s==="" ||
+            c[i]
+            .getAttribute("data-search")
+            .toLowerCase()
+            .indexOf(s)!==-1;
+
+
+        c[i].style.display=
+            (okCat && okSearch)
+            ? ""
+            : "none";
+
+
+        if(okCat && okSearch){
+
+            n++;
+
+        }
+
+    }
+
+
+    document.getElementById("noResults").style.display=
+        n ? "none" : "block";
+
+}
+
+
+
+document
+.getElementById("searchInput")
+.onkeyup=filterBooks;
+
+
+var categoryButtons=
+    document.getElementsByClassName("category-button");
+
+
+for(var i=0;i<categoryButtons.length;i++){
+
+    categoryButtons[i].onclick=function(){
+
+        for(var j=0;j<categoryButtons.length;j++){
+
+            categoryButtons[j].className=
+                "category-button";
+
+        }
+
+
+        this.className=
+            "category-button active";
+
+
+        currentCategory=
+            this.getAttribute("data-category");
+
+
+        filterBooks();
+
+    };
+
+}
+
+
+/* =========================
+   تشغيل عداد السلة
+========================= */
+
+updateCartCount();
+
+</script>
+
+
+</body>
+
+</html>
